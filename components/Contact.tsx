@@ -14,7 +14,7 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6">Let's Build Together</h2>
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6">Let&apos;s Build Together</h2>
           <p className="text-text-secondary text-sm sm:text-base md:text-lg mb-8 sm:mb-12 max-w-2xl mx-auto">
             Interested in collaborating on projects or discussing opportunities? 
             Feel free to reach out through any of these channels.
