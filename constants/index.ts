@@ -85,7 +85,7 @@ export const PROJECTS: Project[] = [
     title: "ChatbotJarvis",
     description: "Intelligent conversational AI assistant built with advanced NLP, capable of context-aware interactions and task automation.",
     image: "/projects/jarvis.png",
-    technologies: ["Python", "NLP", "OpenAI", "React"],
+    technologies: ["Python", "NLP", "React"],
     githubUrl: "https://github.com/NamanGaonkar/J.A.R.V.I.S-A.i-",
     featured: false
   },
