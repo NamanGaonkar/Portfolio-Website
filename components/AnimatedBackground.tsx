@@ -9,7 +9,7 @@ export default function AnimatedBackground() {
       <motion.div
         className="absolute top-0 left-0 w-[800px] h-[800px] rounded-full"
         style={{
-          background: 'radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, rgba(139, 92, 246, 0.1) 40%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(255, 140, 50, 0.4) 0%, rgba(255, 140, 50, 0.1) 40%, transparent 70%)',
           filter: 'blur(60px)',
         }}
         animate={{
@@ -27,7 +27,7 @@ export default function AnimatedBackground() {
       <motion.div
         className="absolute bottom-0 right-0 w-[700px] h-[700px] rounded-full"
         style={{
-          background: 'radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, rgba(59, 130, 246, 0.1) 40%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(255, 100, 30, 0.4) 0%, rgba(255, 100, 30, 0.1) 40%, transparent 70%)',
           filter: 'blur(60px)',
         }}
         animate={{
@@ -45,7 +45,7 @@ export default function AnimatedBackground() {
       <motion.div
         className="absolute top-1/3 right-1/4 w-[600px] h-[600px] rounded-full"
         style={{
-          background: 'radial-gradient(circle, rgba(168, 85, 247, 0.3) 0%, rgba(168, 85, 247, 0.08) 40%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(255, 165, 0, 0.3) 0%, rgba(255, 165, 0, 0.08) 40%, transparent 70%)',
           filter: 'blur(70px)',
         }}
         animate={{
@@ -65,7 +65,7 @@ export default function AnimatedBackground() {
       <motion.div
         className="absolute top-1/4 left-1/3 w-[400px] h-[400px] rounded-full"
         style={{
-          background: 'radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, transparent 60%)',
+          background: 'radial-gradient(circle, rgba(255, 120, 40, 0.25) 0%, transparent 60%)',
           filter: 'blur(50px)',
         }}
         animate={{
