@@ -54,16 +54,25 @@ export default function Projects() {
         {/* Glow Effect on Hover */}
         <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/0 via-blue-500/0 to-cyan-500/0 group-hover:from-purple-500/10 group-hover:via-blue-500/10 group-hover:to-cyan-500/10 transition-all duration-500" />
         
-        {/* GitHub Link */}
-        <a
-          href={project.githubUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="absolute top-4 right-4 p-2.5 bg-black/60 backdrop-blur-md rounded-full border border-white/10 hover:bg-white/20 hover:border-white/30 hover:scale-110 transition-all z-10"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <Github className="w-5 h-5" />
-        </a>
+        {/* Work in Progress Badge */}
+        {!project.githubUrl && (
+          <div className="absolute top-4 left-4 px-3 py-1.5 bg-orange-500/90 backdrop-blur-md rounded-full border border-orange-400/50 z-10">
+            <span className="text-xs font-semibold text-white">Work in Progress</span>
+          </div>
+        )}
+        
+        {/* GitHub Link - Only show if URL exists */}
+        {project.githubUrl && (
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute top-4 right-4 p-2.5 bg-black/60 backdrop-blur-md rounded-full border border-white/10 hover:bg-white/20 hover:border-white/30 hover:scale-110 transition-all z-10"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Github className="w-5 h-5" />
+          </a>
+        )}
       </div>
 
       {/* Content */}

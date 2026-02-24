@@ -45,21 +45,21 @@ export const PERSONAL_INFO = {
 
 export const PROJECTS: Project[] = [
   {
+    id: "crossfade",
+    title: "CrossFade",
+    description: "Global entertainment hub with vibe-based discovery. Search and explore movies, games, and anime across all platforms with intelligent energy-based filtering and unified trending content.",
+    image: "/projects/crossfade.png",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "TMDB API", "RAWG API"],
+    githubUrl: "",
+    featured: true
+  },
+  {
     id: "civiclens-ai",
     title: "CivicLensAI",
     description: "AI-powered civic monitoring platform leveraging computer vision and machine learning to analyze and improve urban infrastructure.",
     image: "/projects/civiclens.png",
     technologies: ["Python", "AI/ML", "Computer Vision", "TensorFlow"],
     githubUrl: "https://github.com/NamanGaonkar/CivicLensAi-",
-    featured: true
-  },
-  {
-    id: "chatbot-jarvis",
-    title: "ChatbotJarvis",
-    description: "Intelligent conversational AI assistant built with advanced NLP, capable of context-aware interactions and task automation.",
-    image: "/projects/jarvis.png",
-    technologies: ["Python", "NLP", "OpenAI", "React"],
-    githubUrl: "https://github.com/NamanGaonkar/J.A.R.V.I.S-A.i-",
     featured: true
   },
   {
@@ -79,6 +79,15 @@ export const PROJECTS: Project[] = [
     technologies: ["Vite", "React", "TypeScript", "Tailwind CSS"],
     githubUrl: "https://github.com/NamanGaonkar/ViteMate.V1",
     featured: true
+  },
+  {
+    id: "chatbot-jarvis",
+    title: "ChatbotJarvis",
+    description: "Intelligent conversational AI assistant built with advanced NLP, capable of context-aware interactions and task automation.",
+    image: "/projects/jarvis.png",
+    technologies: ["Python", "NLP", "OpenAI", "React"],
+    githubUrl: "https://github.com/NamanGaonkar/J.A.R.V.I.S-A.i-",
+    featured: false
   },
   {
     id: "smoke-detector",

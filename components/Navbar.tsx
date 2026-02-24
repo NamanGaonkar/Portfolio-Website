@@ -99,17 +99,8 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Mobile: Logo + Menu Button */}
-          <div className="md:hidden flex items-center justify-between gap-4">
-            <motion.button
-              onClick={() => scrollToSection('#home')}
-              className="text-lg font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Naman
-            </motion.button>
-            
+          {/* Mobile: Menu Button */}
+          <div className="md:hidden flex items-center justify-end">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 text-white/80 hover:text-white transition-colors rounded-full hover:bg-white/10"
