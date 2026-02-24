@@ -22,6 +22,15 @@ export interface Skill {
   items: string[];
 }
 
+export interface Education {
+  id: string;
+  institution: string;
+  degree: string;
+  field?: string;
+  period: string;
+  grade?: string;
+}
+
 export const PERSONAL_INFO = {
   name: "Naman",
   headline: "Engineering at the intersection of Hardware & Intelligence.",
@@ -138,3 +147,20 @@ export const SOCIAL_LINKS = {
   linkedin: "https://www.linkedin.com/in/naman-gaonkar-640822325/",
   email: "namanrgaonkar@gmail.com"
 };
+
+export const EDUCATION: Education[] = [
+  {
+    id: "agnel",
+    institution: "Agnel Institute of Technology and Design",
+    degree: "Bachelor of Engineering - BE Electronics and Computer",
+    field: "Engineering",
+    period: "Aug 2023 - Aug 2027",
+  },
+  {
+    id: "kv",
+    institution: "Kendriya Vidyalaya (KV)",
+    degree: "Secondary Education",
+    period: "Apr 2011 - May 2022",
+    grade: "1st - 12th",
+  }
+];

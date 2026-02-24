@@ -41,14 +41,16 @@ html {
   }
   
   .glass-effect {
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
   }
   
   .glass-effect:hover {
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
   }
   
   /* Better touch interactions */
@@ -57,9 +59,28 @@ html {
   }
   
   /* Improve mobile scrolling */
+  section {
+    scroll-margin-top: 7rem;
+  }
+  
   @media (max-width: 768px) {
     section {
-      scroll-margin-top: 2rem;
+      scroll-margin-top: 5rem;
     }
+  }
+  
+  /* Gradient animations */
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+  
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 15s ease infinite;
   }
 }

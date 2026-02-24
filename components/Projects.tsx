@@ -37,25 +37,29 @@ export default function Projects() {
     <motion.div
       key={project.id}
       variants={itemVariants}
-      className="group glass-effect rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-white/5 transition-all duration-300"
-      whileHover={{ y: -5 }}
+      className="group glass-effect rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 border border-white/5 hover:border-white/20"
+      whileHover={{ y: -8, scale: 1.02 }}
+      transition={{ duration: 0.3 }}
     >
       {/* Image Container */}
-      <div className="relative w-full aspect-video bg-gradient-to-br from-gray-900 to-black overflow-hidden">
+      <div className="relative w-full aspect-video bg-gradient-to-br from-purple-900/20 via-gray-900 to-blue-900/20 overflow-hidden">
         {/* Project Image */}
         <ProjectImage 
           src={project.image}
           alt={project.title}
         />
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+        {/* Enhanced Overlay with Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+        
+        {/* Glow Effect on Hover */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/0 via-blue-500/0 to-cyan-500/0 group-hover:from-purple-500/10 group-hover:via-blue-500/10 group-hover:to-cyan-500/10 transition-all duration-500" />
         
         {/* GitHub Link */}
         <a
           href={project.githubUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="absolute top-4 right-4 p-2 bg-black/50 backdrop-blur-sm rounded-full border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all z-10"
+          className="absolute top-4 right-4 p-2.5 bg-black/60 backdrop-blur-md rounded-full border border-white/10 hover:bg-white/20 hover:border-white/30 hover:scale-110 transition-all z-10"
           onClick={(e) => e.stopPropagation()}
         >
           <Github className="w-5 h-5" />
@@ -63,23 +67,29 @@ export default function Projects() {
       </div>
 
       {/* Content */}
-      <div className="p-4 sm:p-6">
-        <h3 className="text-xl sm:text-2xl font-bold mb-2 group-hover:text-white/90 transition-colors">
+      <div className="p-5 sm:p-7 relative">
+        {/* Subtle top glow */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+        
+        <h3 className="text-xl sm:text-2xl font-bold mb-3 group-hover:text-white/90 group-hover:translate-x-1 transition-all duration-300 bg-gradient-to-r from-white to-white/80 bg-clip-text">
           {project.title}
         </h3>
-        <p className="text-text-secondary text-sm sm:text-base mb-4 leading-relaxed">
+        <p className="text-text-secondary text-sm sm:text-base mb-5 leading-relaxed group-hover:text-white/70 transition-colors">
           {project.description}
         </p>
         
         {/* Technologies */}
         <div className="flex flex-wrap gap-2">
-          {project.technologies.map((tech) => (
-            <span
+          {project.technologies.map((tech, index) => (
+            <motion.span
               key={tech}
-              className="px-3 py-1 text-xs bg-white/5 border border-white/10 rounded-full text-text-secondary"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: index * 0.05 }}
+              className="px-3 py-1.5 text-xs bg-gradient-to-br from-white/10 to-white/5 border border-white/10 hover:border-purple-500/50 rounded-full text-text-secondary hover:text-white/90 hover:shadow-lg hover:shadow-purple-500/20 transition-all cursor-default"
             >
               {tech}
-            </span>
+            </motion.span>
           ))}
         </div>
       </div>
