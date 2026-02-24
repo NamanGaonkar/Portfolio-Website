@@ -1,8 +1,46 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 export default function AnimatedBackground() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Simplified version for mobile
+  if (isMobile) {
+    return (
+      <div className="absolute inset-0 overflow-hidden bg-black">
+        {/* Static gradient for mobile - much better performance */}
+        <div className="absolute top-0 left-0 w-full h-full">
+          <div 
+            className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full opacity-30"
+            style={{
+              background: 'radial-gradient(circle, rgba(255, 140, 50, 0.3) 0%, transparent 70%)',
+              filter: 'blur(40px)',
+            }}
+          />
+          <div 
+            className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full opacity-25"
+            style={{
+              background: 'radial-gradient(circle, rgba(255, 100, 30, 0.3) 0%, transparent 70%)',
+              filter: 'blur(40px)',
+            }}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  // Full animated version for desktop
   return (
     <div className="absolute inset-0 overflow-hidden bg-black">
       {/* Animated gradient orbs */}

@@ -83,4 +83,22 @@ html {
     background-size: 200% 200%;
     animation: gradient-shift 15s ease infinite;
   }
+  
+  /* Mobile performance optimizations */
+  @media (max-width: 768px) {
+    /* Reduce animation complexity on mobile */
+    * {
+      will-change: auto !important;
+    }
+    
+    /* Disable expensive transforms on mobile */
+    .glass-effect {
+      backdrop-filter: blur(8px);
+    }
+    
+    /* Simplified transitions for mobile */
+    motion-div {
+      transition-duration: 0.2s !important;
+    }
+  }
 }

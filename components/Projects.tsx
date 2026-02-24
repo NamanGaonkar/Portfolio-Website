@@ -4,10 +4,20 @@ import { motion } from 'framer-motion';
 import { Github, ChevronDown } from 'lucide-react';
 import { PROJECTS } from '@/constants';
 import ProjectImage from './ProjectImage';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Projects() {
   const [showMore, setShowMore] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   
   const featuredProjects = PROJECTS.filter(p => p.featured);
   const moreProjects = PROJECTS.filter(p => !p.featured);
@@ -38,7 +48,7 @@ export default function Projects() {
       key={project.id}
       variants={itemVariants}
       className="group glass-effect rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 border border-white/5 hover:border-white/20"
-      whileHover={{ y: -8, scale: 1.02 }}
+      whileHover={isMobile ? {} : { y: -8, scale: 1.02 }}
       transition={{ duration: 0.3 }}
     >
       {/* Image Container */}
@@ -51,8 +61,10 @@ export default function Projects() {
         {/* Enhanced Overlay with Gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
         
-        {/* Glow Effect on Hover */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/0 via-blue-500/0 to-cyan-500/0 group-hover:from-purple-500/10 group-hover:via-blue-500/10 group-hover:to-cyan-500/10 transition-all duration-500" />
+        {/* Glow Effect on Hover - Disabled on mobile */}
+        {!isMobile && (
+          <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/0 via-blue-500/0 to-cyan-500/0 group-hover:from-purple-500/10 group-hover:via-blue-500/10 group-hover:to-cyan-500/10 transition-all duration-500" />
+        )}
         
         {/* Work in Progress Badge */}
         {!project.githubUrl && (

@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface ProjectImageProps {
   src: string;
@@ -10,6 +10,11 @@ interface ProjectImageProps {
 
 export default function ProjectImage({ src, alt }: ProjectImageProps) {
   const [imageError, setImageError] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
 
   if (imageError) {
     return (
@@ -26,6 +31,8 @@ export default function ProjectImage({ src, alt }: ProjectImageProps) {
       fill
       className="object-cover"
       sizes="(max-width: 768px) 100vw, 50vw"
+      quality={isMobile ? 60 : 75}
+      loading="lazy"
       onError={() => setImageError(true)}
     />
   );
