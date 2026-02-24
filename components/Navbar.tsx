@@ -24,18 +24,26 @@ export default function Navbar() {
 
       // Update active section based on scroll position
       const sections = navItems.map(item => item.href.slice(1));
-      const current = sections.find(section => {
+      
+      // Check from bottom to top to prioritize lower sections
+      let currentSection = 'home';
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          return rect.top <= 150 && rect.bottom >= 150;
+          // If section top is above the middle of viewport, this is the active section
+          if (rect.top <= window.innerHeight / 2) {
+            currentSection = section;
+            break;
+          }
         }
-        return false;
-      });
-      if (current) setActiveSection(current);
+      }
+      setActiveSection(currentSection);
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Call once on mount
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
