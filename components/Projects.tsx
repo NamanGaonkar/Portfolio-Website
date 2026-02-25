@@ -67,9 +67,16 @@ export default function Projects() {
         )}
         
         {/* Work in Progress Badge */}
-        {!project.githubUrl && (
+        {!project.githubUrl && project.id === 'crossfade' && (
           <div className="absolute top-4 left-4 px-3 py-1.5 bg-orange-500/90 backdrop-blur-md rounded-full border border-orange-400/50 z-10">
             <span className="text-xs font-semibold text-white">Work in Progress</span>
+          </div>
+        )}
+        
+        {/* Hardware Project Badge */}
+        {!project.githubUrl && project.id === 'smoke-detector' && (
+          <div className="absolute top-4 left-4 px-3 py-1.5 bg-blue-500/90 backdrop-blur-md rounded-full border border-blue-400/50 z-10">
+            <span className="text-xs font-semibold text-white">Hardware Project</span>
           </div>
         )}
         

@@ -82,7 +82,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "chatbot-jarvis",
-    title: "ChatbotJarvis",
+    title: "J.A.R.V.I.S",
     description: "Intelligent conversational AI assistant built with advanced NLP, capable of context-aware interactions and task automation.",
     image: "/projects/jarvis.png",
     technologies: ["Python", "NLP", "React"],
@@ -95,7 +95,7 @@ export const PROJECTS: Project[] = [
     description: "IoT-based safety system built with Arduino and ESP32 featuring real-time smoke detection, automatic alerts via email and mobile notifications to fire departments and homeowners. Includes smoke sensor, buzzer, motor driver, and 16x2 display for immediate response and safety action.",
     image: "/projects/smoke.png",
     technologies: ["Arduino", "ESP32", "IoT", "C++", "Sensors"],
-    githubUrl: "https://github.com/naman/smoke-detector",
+    githubUrl: "",
     featured: false
   },
   {
