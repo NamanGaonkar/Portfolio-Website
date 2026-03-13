@@ -72,6 +72,27 @@ export default function Projects() {
             <span className="text-xs font-semibold text-black">Work in Progress</span>
           </div>
         )}
+
+        {/* Beta Badge */}
+        {project.id === 'cypher-wav' && (
+          <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#a78bfa]/95 rounded-full border border-[#c4b5fd]/70 z-10">
+            <span className="text-xs font-semibold text-black">Beta v1.0.0</span>
+          </div>
+        )}
+
+        {/* CYPHER Download Note */}
+        {project.id === 'cypher-wav' && (
+          <div className="absolute top-14 left-4 px-3 py-1.5 bg-[#0e7490]/95 rounded-full border border-[#67e8f9]/70 z-10">
+            <span className="text-[10px] sm:text-xs font-semibold text-white">Download Link Coming Soon</span>
+          </div>
+        )}
+
+        {/* Legacy Badge */}
+        {['chatbot-jarvis', 'expense-tracker'].includes(project.id) && (
+          <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#94a3b8]/95 rounded-full border border-[#cbd5e1]/70 z-10">
+            <span className="text-xs font-semibold text-black">Legacy Build (No Active Updates)</span>
+          </div>
+        )}
         
         {/* Hardware Project Badge */}
         {!project.githubUrl && project.id === 'smoke-detector' && (
@@ -81,10 +102,10 @@ export default function Projects() {
         )}
 
         {/* Discontinued Project Badge */}
-        {['mindcare-ai', 'vitemate', 'expense-tracker'].includes(project.id) && (
+        {['mindcare-ai', 'vitemate'].includes(project.id) && (
           <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#d9ff2f]/90 rounded-full border border-[#ecff63]/60 z-10 max-w-[88%]">
             <span className="text-[10px] sm:text-xs font-semibold text-black leading-tight">
-              Discontinued Project - Source Code Available
+              Discontinued - Source Code Available on GitHub
             </span>
           </div>
         )}

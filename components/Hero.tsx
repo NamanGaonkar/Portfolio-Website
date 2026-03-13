@@ -34,10 +34,10 @@ export default function Hero() {
         >
           {/* Main heading – Barlow Condensed ExtraBold, all-caps, huge */}
           <h1 className="display-font leading-[0.92] mb-5 sm:mb-7 text-center lg:text-left">
-            <span className="block text-[clamp(3.2rem,8.5vw,7.5rem)] text-white">
+            <span className="block text-[clamp(3.9rem,14vw,7.5rem)] text-white">
               HELLO,
             </span>
-            <span className="block text-[clamp(3.2rem,8.5vw,7.5rem)] text-[#d9ff2f]">
+            <span className="block text-[clamp(3.9rem,14vw,7.5rem)] text-[#d9ff2f]">
               I&apos;M NAMAN
             </span>
           </h1>

@@ -46,6 +46,15 @@ export const PERSONAL_INFO = {
 
 export const PROJECTS: Project[] = [
   {
+    id: "cypher-wav",
+    title: "CYPHER.WAV",
+    description: "Cyberpunk-inspired standalone desktop music streamer with instant search and real-time playback, built with a custom PyQt6 interface and threaded background processing.",
+    image: "/projects/cypher.png",
+    technologies: ["Python 3", "PyQt6", "PyQt6 Multimedia", "yt-dlp", "QThreads", "QSS", "Mutagen/JSON"],
+    githubUrl: "https://github.com/NamanGaonkar/CYPHER.WAV",
+    featured: true
+  },
+  {
     id: "crossfade",
     title: "CrossFade",
     description: "Global entertainment hub with vibe-based discovery. Search and explore movies, games, and anime across all platforms with intelligent energy-based filtering and unified trending content.",
@@ -80,7 +89,7 @@ export const PROJECTS: Project[] = [
     image: "/projects/vitemate.png",
     technologies: ["Vite", "React", "TypeScript", "Tailwind CSS"],
     githubUrl: "https://github.com/NamanGaonkar/ViteMate.V1",
-    featured: true
+    featured: false
   },
   {
     id: "chatbot-jarvis",
