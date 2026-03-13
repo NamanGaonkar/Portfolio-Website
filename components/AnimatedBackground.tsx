@@ -15,118 +15,45 @@ export default function AnimatedBackground() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Simplified version for mobile - optimized with CSS transforms
+  // Static background on mobile for better performance
   if (isMobile) {
     return (
-      <div className="absolute inset-0 overflow-hidden bg-black">
-        {/* Enhanced gradients for mobile - more visible */}
-        <div className="absolute top-0 left-0 w-full h-full will-change-transform">
-          <div 
-            className="absolute -top-20 -left-20 w-[500px] h-[500px] rounded-full opacity-50"
-            style={{
-              background: 'radial-gradient(circle, rgba(255, 140, 50, 0.6) 0%, rgba(255, 140, 50, 0.3) 50%, transparent 70%)',
-              filter: 'blur(60px)',
-              transform: 'translateZ(0)',
-            }}
-          />
-          <div 
-            className="absolute -bottom-20 -right-20 w-[500px] h-[500px] rounded-full opacity-50"
-            style={{
-              background: 'radial-gradient(circle, rgba(255, 100, 30, 0.6) 0%, rgba(255, 100, 30, 0.3) 50%, transparent 70%)',
-              filter: 'blur(60px)',
-              transform: 'translateZ(0)',
-            }}
-          />
-          <div 
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full opacity-30"
-            style={{
-              background: 'radial-gradient(circle, rgba(255, 165, 0, 0.5) 0%, transparent 70%)',
-              filter: 'blur(50px)',
-              transform: 'translateZ(0)',
-            }}
-          />
-        </div>
+      <div className="absolute inset-0 overflow-hidden bg-[#060606]">
+        <div className="absolute inset-0 opacity-65" style={{ backgroundImage: 'linear-gradient(rgba(217,255,47,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(217,255,47,0.06) 1px, transparent 1px)', backgroundSize: '78px 78px' }} />
+        <div className="absolute -top-24 -left-24 w-[380px] h-[380px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(217, 255, 47, 0.26) 0%, rgba(217, 255, 47, 0.08) 44%, transparent 72%)', filter: 'blur(62px)' }} />
+        <div className="absolute -bottom-24 -right-24 w-[380px] h-[380px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(217, 255, 47, 0.22) 0%, rgba(217, 255, 47, 0.06) 42%, transparent 70%)', filter: 'blur(62px)' }} />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/70" />
       </div>
     );
   }
 
-  // Full animated version for desktop - optimized
   return (
-    <div className="absolute inset-0 overflow-hidden bg-black will-change-transform">
-      {/* Animated gradient orbs */}
+    <div className="absolute inset-0 overflow-hidden bg-[#060606]">
+      <div className="absolute inset-0 opacity-70" style={{ backgroundImage: 'linear-gradient(rgba(217,255,47,0.055) 1px, transparent 1px), linear-gradient(90deg, rgba(217,255,47,0.055) 1px, transparent 1px)', backgroundSize: '92px 92px' }} />
+
       <motion.div
-        className="absolute top-0 left-0 w-[800px] h-[800px] rounded-full"
+        className="absolute -top-28 -left-24 w-[680px] h-[680px] rounded-full"
         style={{
-          background: 'radial-gradient(circle, rgba(255, 140, 50, 0.4) 0%, rgba(255, 140, 50, 0.1) 40%, transparent 70%)',
-          filter: 'blur(60px)',
-          transform: 'translateZ(0)',
+          background: 'radial-gradient(circle, rgba(217, 255, 47, 0.2) 0%, rgba(217, 255, 47, 0.08) 42%, transparent 72%)',
+          filter: 'blur(78px)',
         }}
-        animate={{
-          x: [0, 300, 100, 0],
-          y: [0, 200, 300, 0],
-          scale: [1, 1.3, 0.9, 1],
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
+        animate={{ x: [0, 70, 0], y: [0, 40, 0] }}
+        transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
       />
-      
+
       <motion.div
-        className="absolute bottom-0 right-0 w-[700px] h-[700px] rounded-full"
+        className="absolute -bottom-28 -right-24 w-[620px] h-[620px] rounded-full"
         style={{
-          background: 'radial-gradient(circle, rgba(255, 100, 30, 0.4) 0%, rgba(255, 100, 30, 0.1) 40%, transparent 70%)',
-          filter: 'blur(60px)',
+          background: 'radial-gradient(circle, rgba(217, 255, 47, 0.18) 0%, rgba(217, 255, 47, 0.06) 40%, transparent 70%)',
+          filter: 'blur(74px)',
         }}
-        animate={{
-          x: [0, -200, -100, 0],
-          y: [0, -300, -150, 0],
-          scale: [1, 1.2, 0.8, 1],
-        }}
-        transition={{
-          duration: 18,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
+        animate={{ x: [0, -90, 0], y: [0, -50, 0] }}
+        transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut' }}
       />
-      
-      <motion.div
-        className="absolute top-1/3 right-1/4 w-[600px] h-[600px] rounded-full"
-        style={{
-          background: 'radial-gradient(circle, rgba(255, 165, 0, 0.3) 0%, rgba(255, 165, 0, 0.08) 40%, transparent 70%)',
-          filter: 'blur(70px)',
-        }}
-        animate={{
-          x: [0, -150, 150, 0],
-          y: [0, 150, -100, 0],
-          scale: [1, 1.1, 1.2, 1],
-          rotate: [0, 180, 360],
-        }}
-        transition={{
-          duration: 25,
-          repeat: Infinity,
-          ease: 'linear',
-        }}
-      />
-      
-      {/* Moving particles */}
-      <motion.div
-        className="absolute top-1/4 left-1/3 w-[400px] h-[400px] rounded-full"
-        style={{
-          background: 'radial-gradient(circle, rgba(255, 120, 40, 0.25) 0%, transparent 60%)',
-          filter: 'blur(50px)',
-        }}
-        animate={{
-          x: [0, 200, -100, 0],
-          y: [0, -150, 200, 0],
-        }}
-        transition={{
-          duration: 15,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-      />
+
+      <div className="absolute inset-x-0 top-[36%] mx-auto w-[420px] h-[420px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(217, 255, 47, 0.14) 0%, transparent 72%)', filter: 'blur(70px)' }} />
+
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/70" />
     </div>
   );
 }

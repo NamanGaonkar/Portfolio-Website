@@ -34,7 +34,7 @@ export default function Skills() {
 
   return (
     <section id="skills" className="min-h-screen px-4 sm:px-6 py-16 sm:py-20">
-      <div className="max-w-7xl mx-auto">
+      <div className="site-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -42,10 +42,10 @@ export default function Skills() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-white via-white/95 to-white/90 bg-clip-text text-transparent">
+          <h2 className="section-title mb-3 sm:mb-4">
             Technical Arsenal
           </h2>
-          <p className="text-white/50 text-base sm:text-lg mb-8 sm:mb-16 max-w-2xl mx-auto">
+          <p className="section-subtitle mb-8 sm:mb-16 max-w-2xl mx-auto">
             Tools and technologies I work with
           </p>
         </motion.div>
@@ -64,25 +64,17 @@ export default function Skills() {
               <motion.div
                 key={skillGroup.category}
                 variants={itemVariants}
-                className="group relative glass-effect rounded-2xl p-8 border border-white/10 hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-500 overflow-hidden"
-                whileHover={{ y: -10, scale: 1.03 }}
+                className="group relative surface-card rounded-2xl p-8 border border-white/10 hover:border-[#d9ff2f]/40 transition-all duration-300 overflow-hidden"
+                whileHover={{ y: -8, scale: 1.02 }}
               >
-                {/* Animated gradient background on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 via-blue-500/0 to-purple-500/0 group-hover:from-purple-500/10 group-hover:via-blue-500/10 group-hover:to-purple-500/10 transition-all duration-500 opacity-0 group-hover:opacity-100" />
-                
-                {/* Top gradient accent line */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 via-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                {/* Corner glow effect */}
-                <div className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br from-purple-500 via-blue-500 to-purple-500 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-all duration-500" />
+                <div className="absolute top-0 left-0 right-0 h-px accent-line" />
                 
                 <div className="relative z-10">
-                  {/* Icon with gradient background */}
-                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500/20 via-blue-500/20 to-purple-500/20 group-hover:from-purple-500/30 group-hover:via-blue-500/30 group-hover:to-purple-500/30 transition-all duration-500 mb-5">
-                    <Icon className="w-7 h-7 text-purple-400 group-hover:text-purple-300 transition-colors duration-500" strokeWidth={2.5} />
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-[#d9ff2f]/12 border border-[#d9ff2f]/35 mb-5">
+                    <Icon className="w-7 h-7 text-[#ecff63] transition-colors duration-500" strokeWidth={2.5} />
                   </div>
                   
-                  <h3 className="text-2xl font-bold mb-6 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent group-hover:from-white group-hover:to-white transition-all duration-500">
+                  <h3 className="display-font text-3xl mb-6 text-white group-hover:text-[#d9ff2f] transition-colors">
                     {skillGroup.category}
                   </h3>
                   
@@ -90,14 +82,14 @@ export default function Skills() {
                     {skillGroup.items.map((skill, index) => (
                       <motion.li
                         key={skill}
-                        className="text-white/60 group-hover:text-white/90 hover:text-white transition-all duration-300 flex items-center gap-3 group/item cursor-default"
+                        className="text-white/62 group-hover:text-white/85 hover:text-white transition-all duration-300 flex items-center gap-3 group/item cursor-default"
                         whileHover={{ x: 8 }}
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ delay: groupIndex * 0.1 + index * 0.05 }}
                         viewport={{ once: true }}
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-white/40 bg-gradient-to-r group-hover/item:from-purple-400 group-hover/item:to-blue-400 group-hover/item:scale-150 group-hover/item:shadow-lg transition-all duration-300" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#d9ff2f]/80 group-hover/item:scale-150 transition-all duration-300" />
                         <span className="group-hover/item:font-medium text-sm sm:text-base">{skill}</span>
                       </motion.li>
                     ))}

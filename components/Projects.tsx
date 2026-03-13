@@ -47,35 +47,35 @@ export default function Projects() {
     <motion.div
       key={project.id}
       variants={itemVariants}
-      className="group glass-effect rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 border border-white/5 hover:border-white/20"
+      className="group surface-card rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#d9ff2f]/35"
       whileHover={isMobile ? {} : { y: -8, scale: 1.02 }}
       transition={{ duration: 0.3 }}
     >
       {/* Image Container */}
-      <div className="relative w-full aspect-video bg-gradient-to-br from-purple-900/20 via-gray-900 to-blue-900/20 overflow-hidden">
+      <div className="relative w-full aspect-video bg-gradient-to-br from-black via-[#121212] to-black overflow-hidden">
         {/* Project Image */}
         <ProjectImage 
           src={project.image}
           alt={project.title}
         />
         {/* Enhanced Overlay with Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-transparent opacity-70 group-hover:opacity-50 transition-opacity" />
         
         {/* Glow Effect on Hover - Disabled on mobile */}
         {!isMobile && (
-          <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/0 via-blue-500/0 to-cyan-500/0 group-hover:from-purple-500/10 group-hover:via-blue-500/10 group-hover:to-cyan-500/10 transition-all duration-500" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-[#d9ff2f]/0 via-[#d9ff2f]/0 to-transparent group-hover:from-[#d9ff2f]/10 group-hover:via-[#d9ff2f]/7 group-hover:to-transparent transition-all duration-500" />
         )}
         
         {/* Work in Progress Badge */}
         {!project.githubUrl && project.id === 'crossfade' && (
-          <div className="absolute top-4 left-4 px-3 py-1.5 bg-orange-500/90 backdrop-blur-md rounded-full border border-orange-400/50 z-10">
-            <span className="text-xs font-semibold text-white">Work in Progress</span>
+          <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#d9ff2f]/90 rounded-full border border-[#ecff63]/60 z-10">
+            <span className="text-xs font-semibold text-black">Work in Progress</span>
           </div>
         )}
         
         {/* Hardware Project Badge */}
         {!project.githubUrl && project.id === 'smoke-detector' && (
-          <div className="absolute top-4 left-4 px-3 py-1.5 bg-blue-500/90 backdrop-blur-md rounded-full border border-blue-400/50 z-10">
+          <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#d9ff2f]/90 rounded-full border border-[#ecff63]/60 z-10">
             <span className="text-xs font-semibold text-white">Hardware Project</span>
           </div>
         )}
@@ -86,7 +86,7 @@ export default function Projects() {
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="absolute top-4 right-4 p-2.5 bg-black/60 backdrop-blur-md rounded-full border border-white/10 hover:bg-white/20 hover:border-white/30 hover:scale-110 transition-all z-10"
+            className="absolute top-4 right-4 p-2.5 bg-black/75 rounded-full border border-white/20 hover:border-[#d9ff2f]/45 hover:scale-110 transition-all z-10"
             onClick={(e) => e.stopPropagation()}
           >
             <Github className="w-5 h-5" />
@@ -97,12 +97,12 @@ export default function Projects() {
       {/* Content */}
       <div className="p-5 sm:p-7 relative">
         {/* Subtle top glow */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px accent-line" />
         
-        <h3 className="text-xl sm:text-2xl font-bold mb-3 group-hover:text-white/90 group-hover:translate-x-1 transition-all duration-300 bg-gradient-to-r from-white to-white/80 bg-clip-text">
+        <h3 className="display-font text-2xl sm:text-3xl mb-3 group-hover:text-[#d9ff2f] transition-all duration-300">
           {project.title}
         </h3>
-        <p className="text-text-secondary text-sm sm:text-base mb-5 leading-relaxed group-hover:text-white/70 transition-colors">
+        <p className="text-white/62 text-sm sm:text-base mb-5 leading-relaxed group-hover:text-white/78 transition-colors">
           {project.description}
         </p>
         
@@ -114,7 +114,7 @@ export default function Projects() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: index * 0.05 }}
-              className="px-3 py-1.5 text-xs bg-gradient-to-br from-white/10 to-white/5 border border-white/10 hover:border-purple-500/50 rounded-full text-text-secondary hover:text-white/90 hover:shadow-lg hover:shadow-purple-500/20 transition-all cursor-default"
+              className="px-2.5 py-1 text-xs bg-black/65 border border-white/15 hover:border-[#d9ff2f]/40 text-white/65 hover:text-white transition-all cursor-default"
             >
               {tech}
             </motion.span>
@@ -126,15 +126,15 @@ export default function Projects() {
 
   return (
     <section id="projects" className="min-h-screen px-4 sm:px-6 py-16 sm:py-20">
-      <div className="max-w-7xl mx-auto">
+      <div className="site-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-3 sm:mb-4">Projects</h2>
-          <p className="text-text-secondary text-base sm:text-lg mb-8 sm:mb-12">
+          <h2 className="section-title mb-3 sm:mb-4">Projects</h2>
+          <p className="section-subtitle mb-8 sm:mb-12">
             Building intelligent solutions across software and hardware
           </p>
         </motion.div>
@@ -155,7 +155,7 @@ export default function Projects() {
           <div className="mt-12">
             <motion.button
               onClick={() => setShowMore(!showMore)}
-              className="flex items-center gap-2 mx-auto px-5 sm:px-6 py-2.5 sm:py-3 glass-effect rounded-lg hover:bg-white/10 transition-all group touch-manipulation"
+              className="flex items-center gap-2 mx-auto px-5 sm:px-6 py-2.5 sm:py-3 surface-card rounded-lg hover:border-[#d9ff2f]/40 transition-all group touch-manipulation"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

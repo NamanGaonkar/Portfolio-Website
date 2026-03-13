@@ -50,7 +50,7 @@ export default function Navbar() {
   const scrollToSection = (href: string) => {
     const element = document.getElementById(href.slice(1));
     if (element) {
-      const navbarHeight = 120; // Account for navbar + padding
+      const navbarHeight = 55;
       const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
       const offsetPosition = elementPosition - navbarHeight;
       
@@ -68,20 +68,18 @@ export default function Navbar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4"
+        className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-8"
       >
-        <div className={`transition-all duration-300 ${
-          isScrolled
-            ? 'glass-effect shadow-2xl shadow-purple-500/10'
-            : 'glass-effect'
-        } rounded-full px-6 py-3 w-auto`}>
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-2">
+        {/* Desktop Navigation */}
+        <div className={`hidden md:flex transition-all duration-300 glass-effect border-t-0 ${
+          isScrolled ? 'shadow-lg shadow-black/60' : ''
+        } px-6 py-3 w-full justify-center`}>
+          <div className="flex items-center space-x-2">
             {navItems.map((item) => (
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className={`relative px-5 py-2 text-sm font-medium transition-all duration-300 rounded-full whitespace-nowrap ${
+                className={`relative px-5 py-2 text-sm font-medium tracking-wide transition-all duration-300 whitespace-nowrap ${
                   activeSection === item.href.slice(1)
                     ? 'text-white'
                     : 'text-white/60 hover:text-white/90'
@@ -90,7 +88,7 @@ export default function Navbar() {
                 {activeSection === item.href.slice(1) && (
                   <motion.div
                     layoutId="activeSection"
-                    className="absolute inset-0 bg-gradient-to-r from-purple-500/30 via-blue-500/30 to-purple-500/30 backdrop-blur-sm rounded-full border border-purple-400/30"
+                    className="absolute inset-0 bg-[#d9ff2f]/12 border border-[#d9ff2f]/55"
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -98,16 +96,16 @@ export default function Navbar() {
               </button>
             ))}
           </div>
+        </div>
 
-          {/* Mobile: Menu Button */}
-          <div className="md:hidden flex items-center justify-end">
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 text-white/80 hover:text-white transition-colors rounded-full hover:bg-white/10"
-            >
-              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
-          </div>
+        {/* Mobile: Icon only (no top bar container) */}
+        <div className="md:hidden flex justify-end pt-3 pr-1">
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="p-2 text-white/85 hover:text-white transition-colors rounded-full bg-black/70 border border-white/15 hover:border-[#d9ff2f]/45"
+          >
+            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
         </div>
       </motion.nav>
 
@@ -119,17 +117,17 @@ export default function Navbar() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-24 left-0 right-0 z-40 md:hidden flex justify-center px-4"
+            className="fixed top-[58px] left-0 right-0 z-40 md:hidden flex justify-center px-4"
           >
-            <div className="w-full max-w-sm glass-effect rounded-3xl p-4 shadow-2xl shadow-purple-500/10">
+            <div className="w-full glass-effect p-4 shadow-2xl shadow-black/60 border-t border-[#d9ff2f]/20">
               <div className="space-y-2">
                 {navItems.map((item) => (
                   <button
                     key={item.name}
                     onClick={() => scrollToSection(item.href)}
-                    className={`block w-full text-left px-5 py-3 rounded-2xl text-base font-medium transition-all duration-300 ${
+                    className={`block w-full text-left px-5 py-3 text-base font-medium tracking-wide transition-all duration-300 ${
                       activeSection === item.href.slice(1)
-                        ? 'bg-gradient-to-r from-purple-500/30 via-blue-500/30 to-purple-500/30 text-white border border-purple-400/30'
+                        ? 'bg-[#d9ff2f]/12 text-[#d9ff2f] border border-[#d9ff2f]/45'
                         : 'text-white/60 hover:text-white hover:bg-white/5'
                     }`}
                   >

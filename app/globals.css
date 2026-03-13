@@ -3,8 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --background: #050505;
-  --foreground: #ffffff;
+  --background: #060606;
+  --background-soft: #0d0d0d;
+  --foreground: #f6f6f2;
+  --muted: #a5a79a;
+  --line: #242621;
+  --accent: #d9ff2f;
+  --accent-strong: #ecff63;
+  --accent-soft: rgba(217, 255, 47, 0.18);
 }
 
 * {
@@ -17,8 +23,10 @@
 
 body {
   color: var(--foreground);
-  background: var(--background);
-  font-family: var(--font-geist-sans), Inter, system-ui, sans-serif;
+  background: radial-gradient(900px circle at 12% 8%, rgba(217, 255, 47, 0.08), transparent 48%),
+    radial-gradient(800px circle at 88% 88%, rgba(217, 255, 47, 0.07), transparent 52%),
+    var(--background);
+  font-family: var(--font-sans), "Segoe UI", sans-serif;
   /* Prevent horizontal scroll on mobile */
   overflow-x: hidden;
   /* Smooth font rendering */
@@ -39,65 +47,114 @@ html {
   .text-balance {
     text-wrap: balance;
   }
-  
+
+  /* === TYPOGRAPHY === */
+  .display-font {
+    font-family: var(--font-display), "Barlow Condensed", Impact, sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+  }
+
+  .section-title {
+    font-family: var(--font-display), "Barlow Condensed", Impact, sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: clamp(2.4rem, 5.5vw, 4.5rem);
+    line-height: 1.0;
+    letter-spacing: 0.01em;
+  }
+
+  .section-subtitle {
+    color: var(--muted);
+    font-size: clamp(0.9rem, 2vw, 1.05rem);
+    font-weight: 400;
+  }
+
+  /* === LAYOUT === */
+  .site-container {
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* === HUD PANEL CARD === */
+  /* Dark background, single-pixel yellow-tinted border, corner bracket accents */
+  .surface-card {
+    background: rgba(10, 10, 10, 0.96);
+    border: 1px solid rgba(217, 255, 47, 0.18);
+    position: relative;
+  }
+
+  .surface-card::before,
+  .surface-card::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-color: #d9ff2f;
+    border-style: solid;
+    opacity: 0.6;
+  }
+
+  .surface-card::before {
+    top: -1px;
+    left: -1px;
+    border-width: 2px 0 0 2px;
+  }
+
+  .surface-card::after {
+    bottom: -1px;
+    right: -1px;
+    border-width: 0 2px 2px 0;
+  }
+
+  .surface-card:hover {
+    border-color: rgba(217, 255, 47, 0.42);
+  }
+
+  .surface-card:hover::before,
+  .surface-card:hover::after {
+    opacity: 1;
+  }
+
+  /* === ACCENT === */
+  .accent-line {
+    background: linear-gradient(90deg, transparent, #d9ff2f, transparent);
+  }
+
+  /* === NAVBAR GLASS === */
   .glass-effect {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    background: rgba(8, 8, 8, 0.92);
+    border: 1px solid rgba(217, 255, 47, 0.22);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55), 0 0 0 0 transparent;
   }
-  
+
   .glass-effect:hover {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    border-color: rgba(217, 255, 47, 0.4);
   }
-  
-  /* Better touch interactions */
+
+  /* === TOUCH === */
   .touch-manipulation {
     touch-action: manipulation;
   }
-  
-  /* Improve mobile scrolling */
+
   section {
-    scroll-margin-top: 7rem;
+    scroll-margin-top: 5rem;
   }
-  
+
   @media (max-width: 768px) {
     section {
-      scroll-margin-top: 5rem;
+      scroll-margin-top: 4rem;
     }
-  }
-  
-  /* Gradient animations */
-  @keyframes gradient-shift {
-    0%, 100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-  }
-  
-  .animate-gradient {
-    background-size: 200% 200%;
-    animation: gradient-shift 15s ease infinite;
-  }
-  
-  /* Mobile performance optimizations */
-  @media (max-width: 768px) {
-    /* Reduce animation complexity on mobile */
-    * {
-      will-change: auto !important;
-    }
-    
-    /* Disable expensive transforms on mobile */
+
     .glass-effect {
-      backdrop-filter: blur(8px);
+      background: rgba(8, 8, 8, 0.96);
     }
-    
-    /* Simplified transitions for mobile */
-    motion-div {
+
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
       transition-duration: 0.2s !important;
     }
   }

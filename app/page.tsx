@@ -10,7 +10,7 @@ import AnimatedBackground from '@/components/AnimatedBackground'
 
 export default function Home() {
   return (
-    <main className="relative overflow-hidden">
+    <main className="relative overflow-hidden isolation-isolate">
       {/* Animated Background */}
       <div className="fixed inset-0 -z-10">
         <AnimatedBackground />
