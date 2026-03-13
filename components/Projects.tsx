@@ -68,7 +68,7 @@ export default function Projects() {
         
         {/* Work in Progress Badge */}
         {!project.githubUrl && project.id === 'crossfade' && (
-          <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#d9ff2f]/90 rounded-full border border-[#ecff63]/60 z-10">
+          <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#f59e0b]/95 rounded-full border border-[#fbbf24]/70 z-10">
             <span className="text-xs font-semibold text-black">Work in Progress</span>
           </div>
         )}
@@ -77,6 +77,15 @@ export default function Projects() {
         {!project.githubUrl && project.id === 'smoke-detector' && (
           <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#3b82f6]/95 rounded-full border border-[#60a5fa]/70 z-10">
             <span className="text-xs font-semibold text-black">Hardware Project</span>
+          </div>
+        )}
+
+        {/* Discontinued Project Badge */}
+        {['mindcare-ai', 'vitemate', 'expense-tracker'].includes(project.id) && (
+          <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#d9ff2f]/90 rounded-full border border-[#ecff63]/60 z-10 max-w-[88%]">
+            <span className="text-[10px] sm:text-xs font-semibold text-black leading-tight">
+              Discontinued Project - Source Code Available
+            </span>
           </div>
         )}
         
@@ -90,6 +99,18 @@ export default function Projects() {
             onClick={(e) => e.stopPropagation()}
           >
             <Github className="w-5 h-5" />
+          </a>
+        )}
+
+        {project.liveUrl && (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute top-16 right-4 px-3.5 py-1.5 text-xs sm:text-sm font-bold tracking-wide uppercase bg-[#3b82f6]/95 text-black rounded-lg border border-[#60a5fa]/70 hover:bg-[#60a5fa] transition-all z-10"
+            onClick={(e) => e.stopPropagation()}
+          >
+            Live
           </a>
         )}
       </div>

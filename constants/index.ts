@@ -5,6 +5,7 @@ export interface Project {
   image: string;
   technologies: string[];
   githubUrl: string;
+  liveUrl?: string;
   featured?: boolean;
 }
 
@@ -60,6 +61,7 @@ export const PROJECTS: Project[] = [
     image: "/projects/civiclens.png",
     technologies: ["Python", "AI/ML", "Computer Vision", "TensorFlow"],
     githubUrl: "https://github.com/NamanGaonkar/CivicLensAi-",
+    liveUrl: "https://civic-lens-ai-inky.vercel.app/",
     featured: true
   },
   {
