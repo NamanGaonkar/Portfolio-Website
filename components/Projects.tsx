@@ -75,8 +75,8 @@ export default function Projects() {
         
         {/* Hardware Project Badge */}
         {!project.githubUrl && project.id === 'smoke-detector' && (
-          <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#d9ff2f]/90 rounded-full border border-[#ecff63]/60 z-10">
-            <span className="text-xs font-semibold text-white">Hardware Project</span>
+          <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#3b82f6]/95 rounded-full border border-[#60a5fa]/70 z-10">
+            <span className="text-xs font-semibold text-black">Hardware Project</span>
           </div>
         )}
         
