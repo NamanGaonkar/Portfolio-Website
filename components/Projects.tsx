@@ -80,13 +80,6 @@ export default function Projects() {
           </div>
         )}
 
-        {/* CYPHER Download Note */}
-        {project.id === 'cypher-wav' && (
-          <div className="absolute top-14 left-4 px-3 py-1.5 bg-[#0e7490]/95 rounded-full border border-[#67e8f9]/70 z-10">
-            <span className="text-[10px] sm:text-xs font-semibold text-white">Download Link Coming Soon</span>
-          </div>
-        )}
-
         {/* Legacy Badge */}
         {['chatbot-jarvis', 'expense-tracker'].includes(project.id) && (
           <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#94a3b8]/95 rounded-full border border-[#cbd5e1]/70 z-10">
@@ -128,10 +121,14 @@ export default function Projects() {
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="absolute top-16 right-4 px-3.5 py-1.5 text-xs sm:text-sm font-bold tracking-wide uppercase bg-[#3b82f6]/95 text-black rounded-lg border border-[#60a5fa]/70 hover:bg-[#60a5fa] transition-all z-10"
+            className={`absolute top-16 right-4 px-3.5 py-1.5 text-xs sm:text-sm font-bold tracking-wide uppercase rounded-lg border transition-all z-10 ${
+              project.id === 'cypher-wav'
+                ? 'bg-[#06b6d4]/95 text-black border-[#67e8f9]/80 hover:bg-[#22d3ee]'
+                : 'bg-[#3b82f6]/95 text-black border-[#60a5fa]/70 hover:bg-[#60a5fa]'
+            }`}
             onClick={(e) => e.stopPropagation()}
           >
-            Live
+            {project.id === 'cypher-wav' ? 'Download' : 'Live'}
           </a>
         )}
       </div>

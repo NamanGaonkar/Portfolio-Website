@@ -52,6 +52,7 @@ export const PROJECTS: Project[] = [
     image: "/projects/cypher.png",
     technologies: ["Python 3", "PyQt6", "PyQt6 Multimedia", "yt-dlp", "QThreads", "QSS", "Mutagen/JSON"],
     githubUrl: "https://github.com/NamanGaonkar/CYPHER.WAV",
+    liveUrl: "https://drive.google.com/file/d/18kY3kNcaEbP6YSQT9huXMKu8OxtuXpUb/view?usp=sharing",
     featured: true
   },
   {
