@@ -73,6 +73,13 @@ export default function Projects() {
           </div>
         )}
 
+        {/* STRATOS.f1 Badge */}
+        {project.id === 'stratos-f1' && (
+          <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#e11d48]/95 rounded-full border border-[#fb7185]/70 z-10">
+            <span className="text-xs font-semibold text-white">Beta v1.0.0</span>
+          </div>
+        )}
+
         {/* Beta Badge */}
         {project.id === 'cypher-wav' && (
           <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#a78bfa]/95 rounded-full border border-[#c4b5fd]/70 z-10">

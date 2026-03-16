@@ -56,6 +56,15 @@ export const PROJECTS: Project[] = [
     featured: true
   },
   {
+    id: "stratos-f1",
+    title: "STRATOS.f1",
+    description: "F1 race replay & telemetry desktop app — replay any race from 2018–2026 with all 20 cars live on the circuit layout. Click any car for a full telemetry HUD with real-time gaps, tyre strategy, and driver data.",
+    image: "/projects/stratos.png",
+    technologies: ["Python", "Python Arcade", "PySide6", "FastF1", "pandas", "NumPy", "SciPy", "matplotlib"],
+    githubUrl: "https://github.com/NamanGaonkar/STRATOS.f1",
+    featured: true
+  },
+  {
     id: "crossfade",
     title: "CrossFade",
     description: "Global entertainment hub with vibe-based discovery. Search and explore movies, games, and anime across all platforms with intelligent energy-based filtering and unified trending content.",
