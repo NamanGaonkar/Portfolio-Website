@@ -84,6 +84,15 @@ export const PROJECTS: Project[] = [
     featured: true
   },
   {
+    id: "unipass",
+    title: "UniPass",
+    description: "Real-time smart attendance system with secure, time-bound QR sessions for classroom check-ins, instant dashboard updates, and duplicate-mark prevention.",
+    image: "/projects/unipass.png",
+    technologies: ["React", "Vite", "Tailwind CSS", "React Native CLI", "Expo", "Node.js", "Express", "REST APIs", "SHA Validation", "JSON DB"],
+    githubUrl: "https://github.com/NamanGaonkar/Unipass---QR-based-App-For-University",
+    featured: true
+  },
+  {
     id: "mindcare-ai",
     title: "MindCareAI",
     description: "Mental health support platform using AI to provide personalized recommendations and emotional wellness tracking.",

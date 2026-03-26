@@ -19,7 +19,9 @@ export default function Projects() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
   
-  const featuredProjects = PROJECTS.filter(p => p.featured);
+  const featuredProjects = PROJECTS
+    .filter(p => p.featured)
+    .sort((a, b) => (a.id === 'unipass' ? -1 : b.id === 'unipass' ? 1 : 0));
   const moreProjects = PROJECTS.filter(p => !p.featured);
 
   const containerVariants = {
