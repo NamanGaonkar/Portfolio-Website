@@ -19,9 +19,20 @@ export default function Projects() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
   
+  const featuredPriority: Record<string, number> = {
+    'unipass': 0,
+    'civiclens-ai': 1,
+    'mindcare-ai': 2,
+  };
+
   const featuredProjects = PROJECTS
-    .filter(p => p.featured)
-    .sort((a, b) => (a.id === 'unipass' ? -1 : b.id === 'unipass' ? 1 : 0));
+    .filter((p) => p.featured)
+    .sort((a, b) => {
+      const aRank = featuredPriority[a.id] ?? 999;
+      const bRank = featuredPriority[b.id] ?? 999;
+      if (aRank !== bRank) return aRank - bRank;
+      return 0;
+    });
   const moreProjects = PROJECTS.filter(p => !p.featured);
 
   const containerVariants = {
