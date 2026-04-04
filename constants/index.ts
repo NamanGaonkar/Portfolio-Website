@@ -93,6 +93,15 @@ export const PROJECTS: Project[] = [
     featured: true
   },
   {
+    id: "clipstack",
+    title: "ClipStack",
+    description: "Modern minimalist app for instantly saving and organizing links, code snippets, and notes with auto content detection and burn timers for temporary snippets.",
+    image: "/projects/clipstack.png",
+    technologies: ["React", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion", "Lucide React", "Supabase"],
+    githubUrl: "",
+    featured: true
+  },
+  {
     id: "mindcare-ai",
     title: "MindCareAI",
     description: "Mental health support platform using AI to provide personalized recommendations and emotional wellness tracking.",
