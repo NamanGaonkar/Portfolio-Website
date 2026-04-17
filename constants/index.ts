@@ -65,15 +65,6 @@ export const PROJECTS: Project[] = [
     featured: true
   },
   {
-    id: "crossfade",
-    title: "CrossFade",
-    description: "Global entertainment hub with vibe-based discovery. Search and explore movies, games, and anime across all platforms with intelligent energy-based filtering and unified trending content.",
-    image: "/projects/crossfade.png",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "TMDB API", "RAWG API"],
-    githubUrl: "",
-    featured: true
-  },
-  {
     id: "civiclens-ai",
     title: "CivicLensAI",
     description: "AI-powered civic monitoring platform leveraging computer vision and machine learning to analyze and improve urban infrastructure.",

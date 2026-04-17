@@ -81,7 +81,7 @@ export default function Projects() {
         )}
         
         {/* Work in Progress Badge */}
-        {!project.githubUrl && ['crossfade', 'clipstack'].includes(project.id) && (
+        {!project.githubUrl && project.id === 'clipstack' && (
           <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#f59e0b]/95 rounded-full border border-[#fbbf24]/70 z-10">
             <span className="text-xs font-semibold text-black">Work in Progress</span>
           </div>
