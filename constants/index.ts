@@ -144,7 +144,7 @@ export const PROJECTS: Project[] = [
     image: "/projects/vortexholomap.png",
     technologies: ["React", "Vite", "Flask", "Flask-SocketIO", "Scapy", "Tailwind CSS", "Socket.IO", "Framer Motion"],
     githubUrl: "",
-    featured: false
+    featured: true
   }
 ];
 
@@ -208,7 +208,7 @@ export const EDUCATION: Education[] = [
     id: "kv",
     institution: "Kendriya Vidyalaya (KV)",
     degree: "Secondary Education",
-    period: "Apr 2011 - May 2022",
+    period: "Apr 2011 - May 2023",
     grade: "1st - 12th",
   }
 ];

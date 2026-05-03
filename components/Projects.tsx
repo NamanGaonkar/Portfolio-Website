@@ -20,10 +20,11 @@ export default function Projects() {
   }, []);
   
   const featuredPriority: Record<string, number> = {
-    'clipstack': 0,
-    'unipass': 1,
-    'civiclens-ai': 2,
-    'mindcare-ai': 3,
+    'vortex-holomap': 0,
+    'clipstack': 1,
+    'unipass': 2,
+    'civiclens-ai': 3,
+    'mindcare-ai': 4,
   };
 
   const featuredProjects = PROJECTS
