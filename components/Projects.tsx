@@ -101,6 +101,13 @@ export default function Projects() {
           </div>
         )}
 
+        {/* Vortex HoloMap Version Badge */}
+        {project.id === 'vortex-holomap' && (
+          <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#22c55e]/95 rounded-full border border-[#86efac]/70 z-10">
+            <span className="text-xs font-semibold text-black">v1.0.0</span>
+          </div>
+        )}
+
         {/* Legacy Badge */}
         {['chatbot-jarvis', 'expense-tracker'].includes(project.id) && (
           <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#94a3b8]/95 rounded-full border border-[#cbd5e1]/70 z-10">

@@ -136,6 +136,15 @@ export const PROJECTS: Project[] = [
     technologies: ["PHP", "MySQL", "Chart.js", "JavaScript", "HTML/CSS"],
     githubUrl: "https://github.com/NamanGaonkar/Expense-Tracker",
     featured: false
+  },
+  {
+    id: "vortex-holomap",
+    title: "Vortex HoloMap",
+    description: "Real-time local network discovery and visualization tool that discovers live devices, renders network topology in an interactive 2D map, shows device details, tracks traffic activity, and supports traceroute directly from the UI.",
+    image: "/projects/vortexholomap.png",
+    technologies: ["React", "Vite", "Flask", "Flask-SocketIO", "Scapy", "Tailwind CSS", "Socket.IO", "Framer Motion"],
+    githubUrl: "",
+    featured: false
   }
 ];
 
