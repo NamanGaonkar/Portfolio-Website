@@ -66,7 +66,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "civiclens-ai",
-    title: "CivicLensAI",
+    title: "Locality-AI",
     description: "AI-powered civic monitoring platform leveraging computer vision and machine learning to analyze and improve urban infrastructure.",
     image: "/projects/civiclens.png",
     technologies: ["Python", "AI/ML", "Computer Vision", "TensorFlow"],
