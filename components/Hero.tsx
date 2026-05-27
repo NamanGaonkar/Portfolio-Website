@@ -3,9 +3,9 @@
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
-import { PERSONAL_INFO } from '@/constants';
+import { PERSONAL_INFO, SOCIAL_LINKS } from '@/constants';
 
-const IsoCubeGrid = dynamic(() => import('./IsoCubeGrid'), {
+const DesignLottie = dynamic(() => import('./DesignLottie'), {
   ssr: false,
   loading: () => (
     <div className="w-full max-w-[540px] mx-auto h-[260px] sm:h-[320px] lg:h-[440px] rounded-2xl border border-[#d9ff2f]/20 bg-black/45" />
@@ -92,7 +92,7 @@ export default function Hero() {
           transition={{ duration: 0.65, delay: 0.15 }}
           className="w-full mt-3 sm:mt-4 lg:mt-0"
         >
-          <IsoCubeGrid />
+          <DesignLottie />
         </motion.div>
 
       </div>

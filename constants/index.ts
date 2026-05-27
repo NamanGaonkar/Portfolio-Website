@@ -36,10 +36,9 @@ export const PERSONAL_INFO = {
   name: "Naman",
   headline: "Engineering at the intersection of Hardware & Intelligence.",
   roles: [
-    "AI Developer",
-    "Full-Stack Developer",
-    "Embedded Systems Engineer",
-    "DSA Enthusiast"
+    "Full stack & Android Developer",
+    "AI/ML & Embedded System",
+    "Web Developer"
   ],
   bio: "Building scalable web applications while exploring the depths of Data Structures, Artificial Intelligence, and Embedded Systems. Passionate about creating intelligent solutions that bridge software and hardware."
 };
@@ -71,7 +70,7 @@ export const PROJECTS: Project[] = [
     image: "/projects/civiclens.png",
     technologies: ["Python", "AI/ML", "Computer Vision", "TensorFlow"],
     githubUrl: "https://github.com/NamanGaonkar/CivicLensAi-",
-    liveUrl: "https://civic-lens-ai-inky.vercel.app/",
+    liveUrl: "https://locality-ai-inky.vercel.app/",
     featured: true
   },
   {
@@ -193,6 +192,7 @@ export const EXPERIENCES: Experience[] = [
 export const SOCIAL_LINKS = {
   github: "https://github.com/NamanGaonkar",
   linkedin: "https://www.linkedin.com/in/naman-gaonkar-640822325/",
+  resume: "https://drive.google.com/file/d/1vzinB_4b4SJVsyfVGlcR8Lquk8KKy-Hn/view?usp=sharing",
   email: "namanrgaonkar@gmail.com"
 };
 

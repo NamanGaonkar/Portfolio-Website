@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { SOCIAL_LINKS } from '@/constants';
 
 const navItems = [
   { name: 'Home', href: '#home' },
@@ -95,6 +96,14 @@ export default function Navbar() {
                 <span className="relative z-10">{item.name}</span>
               </button>
             ))}
+            <a
+              href={SOCIAL_LINKS.resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-2 inline-flex items-center justify-center px-4 py-2 text-sm font-semibold tracking-wide bg-[#d9ff2f] text-black rounded-lg hover:bg-[#ecff63] transition-colors whitespace-nowrap"
+            >
+              Download Resume
+            </a>
           </div>
         </div>
 
@@ -134,6 +143,15 @@ export default function Navbar() {
                     {item.name}
                   </button>
                 ))}
+                <a
+                  href={SOCIAL_LINKS.resume}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full text-center px-5 py-3 text-base font-semibold tracking-wide bg-[#d9ff2f] text-black rounded-lg hover:bg-[#ecff63] transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Download Resume
+                </a>
               </div>
             </div>
           </motion.div>
