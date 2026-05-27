@@ -43,16 +43,16 @@ export default function Hero() {
           </h1>
 
           {/* Sub-headline */}
-          <p className="text-white/70 text-sm sm:text-base max-w-lg leading-relaxed mb-5 sm:mb-7">
+          <p className="text-white/70 text-sm sm:text-base max-w-md lg:max-w-lg mx-auto lg:mx-0 text-center lg:text-left leading-relaxed mb-5 sm:mb-7">
             {PERSONAL_INFO.headline}
           </p>
 
           {/* Role chips */}
-          <div className="flex flex-wrap gap-2 mb-7 sm:mb-9">
+          <div className="grid grid-cols-1 sm:flex sm:flex-wrap gap-2 mb-7 sm:mb-9">
             {PERSONAL_INFO.roles.map((role, index) => (
               <span
                 key={role}
-                className={`px-3 py-1 text-xs border transition-all duration-500 ${
+                className={`w-full sm:w-auto text-center px-3 py-2 text-xs border transition-all duration-500 ${
                   index === currentRoleIndex
                     ? 'bg-[#d9ff2f]/15 border-[#d9ff2f]/55 text-[#d9ff2f]'
                     : 'bg-transparent border-white/15 text-white/50'
@@ -64,7 +64,7 @@ export default function Hero() {
           </div>
 
           {/* Bio */}
-          <p className="text-white/55 text-sm leading-relaxed max-w-lg mb-9 sm:mb-11">
+          <p className="text-white/55 text-sm leading-relaxed max-w-md lg:max-w-lg mx-auto lg:mx-0 text-center lg:text-left mb-9 sm:mb-11">
             {PERSONAL_INFO.bio}
           </p>
 
@@ -72,13 +72,13 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <a
               href="#projects"
-              className="inline-flex items-center justify-center px-7 py-3.5 bg-[#d9ff2f] text-black font-bold text-sm sm:text-base rounded-xl hover:bg-[#ecff63] active:scale-[0.97] transition-all"
+              className="inline-flex w-full sm:w-auto items-center justify-center px-7 py-3.5 bg-[#d9ff2f] text-black font-bold text-sm sm:text-base rounded-xl hover:bg-[#ecff63] active:scale-[0.97] transition-all"
             >
               View Projects
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center justify-center px-7 py-3.5 bg-[#161616] text-white font-medium text-sm sm:text-base rounded-xl border border-white/20 hover:border-[#d9ff2f]/45 hover:text-[#d9ff2f] active:scale-[0.97] transition-all"
+              className="inline-flex w-full sm:w-auto items-center justify-center px-7 py-3.5 bg-[#161616] text-white font-medium text-sm sm:text-base rounded-xl border border-white/20 hover:border-[#d9ff2f]/45 hover:text-[#d9ff2f] active:scale-[0.97] transition-all"
             >
               Get in Touch
             </a>
