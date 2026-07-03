@@ -1,16 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
-import { PERSONAL_INFO, SOCIAL_LINKS } from '@/constants';
-
-const DesignLottie = dynamic(() => import('./DesignLottie'), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full max-w-[540px] mx-auto h-[260px] sm:h-[320px] lg:h-[440px] rounded-2xl border border-[#d9ff2f]/20 bg-black/45" />
-  ),
-});
+import Image from 'next/image';
+import { PERSONAL_INFO } from '@/constants';
+import namanPortrait from '../design/naman.png';
+import namanMobilePortrait from '../design/naman2.webp';
 
 export default function Hero() {
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
@@ -24,13 +19,36 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center px-4 sm:px-6 overflow-hidden pt-28 pb-12 sm:pt-32 sm:pb-16">
-      <div className="site-container w-full relative z-10 grid grid-cols-1 lg:grid-cols-[1fr_0.9fr] gap-10 lg:gap-14 items-center">
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+        <Image
+          src={namanMobilePortrait}
+          alt="Naman portrait background"
+          priority
+          fill
+          sizes="100vw"
+          className="object-cover object-[62%_22%] opacity-17 sm:hidden blur-[1px] grayscale mix-blend-screen scale-[1.08]"
+        />
+        <Image
+          src={namanPortrait}
+          alt="Naman portrait background"
+          priority
+          fill
+          sizes="100vw"
+          className="hidden sm:block object-cover object-center sm:object-[76%_center] opacity-16 sm:opacity-18 lg:opacity-22 blur-[1px] grayscale mix-blend-screen scale-[1.14]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/82 to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/18 via-transparent to-black/60" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_44%,rgba(217,255,47,0.18),transparent_34%),radial-gradient(circle_at_16%_16%,rgba(217,255,47,0.08),transparent_28%)]" />
+      </div>
 
-        {/* LEFT: Text content */}
+      <div className="site-container w-full relative z-10">
+
+        {/* Text content */}
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55 }}
+          className="relative z-10 max-w-3xl"
         >
           {/* Main heading – Barlow Condensed ExtraBold, all-caps, huge */}
           <h1 className="display-font leading-[0.92] mb-5 sm:mb-7 text-center lg:text-left">
@@ -52,7 +70,7 @@ export default function Hero() {
             {PERSONAL_INFO.roles.map((role, index) => (
               <span
                 key={role}
-                className={`w-full sm:w-auto text-center px-3 py-2 text-xs border transition-all duration-500 ${
+                className={`w-full sm:w-auto text-center px-3 py-2 text-xs border transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d9ff2f]/55 hover:text-[#d9ff2f] ${
                   index === currentRoleIndex
                     ? 'bg-[#d9ff2f]/15 border-[#d9ff2f]/55 text-[#d9ff2f]'
                     : 'bg-transparent border-white/15 text-white/50'
@@ -85,16 +103,37 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* RIGHT: Isometric Cube Grid */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: 12 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.65, delay: 0.15 }}
-          className="w-full mt-3 sm:mt-4 lg:mt-0"
-        >
-          <DesignLottie />
-        </motion.div>
+        <div className="relative z-20 mt-10 w-full max-w-2xl lg:mt-0 lg:absolute lg:right-4 lg:top-1/2 lg:-translate-y-1/2 lg:w-[38vw] lg:max-w-[470px]">
+          <div className="grid gap-4">
+            <div className="surface-card rounded-2xl bg-black/35 backdrop-blur-md border-white/45 p-5 shadow-[0_0_40px_rgba(0,0,0,0.25)] transition-all duration-300 hover:-translate-y-1 hover:bg-black/50 hover:border-[#d9ff2f]/70 hover:shadow-[0_0_55px_rgba(217,255,47,0.18)]">
+              <p className="text-[#d9ff2f] text-[0.72rem] tracking-[0.32em] uppercase font-semibold mb-3">Great design should feel invisible.</p>
+              <p className="text-white/85 text-sm leading-relaxed">I build interfaces that bridge software, hardware, and AI with a clean, cinematic feel.</p>
+            </div>
 
+            <div className="surface-card rounded-2xl bg-black/35 backdrop-blur-md border-white/45 p-5 shadow-[0_0_40px_rgba(0,0,0,0.25)] transition-all duration-300 hover:-translate-y-1 hover:bg-black/50 hover:border-[#d9ff2f]/70 hover:shadow-[0_0_55px_rgba(217,255,47,0.18)]">
+              <p className="text-[#d9ff2f] text-[0.72rem] tracking-[0.32em] uppercase font-semibold mb-3">What I do</p>
+              <div className="grid gap-3">
+                {PERSONAL_INFO.roles.map((role, index) => (
+                  <span
+                    key={role}
+                    className={`w-full rounded-full border px-4 py-2 text-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d9ff2f]/75 hover:bg-[#d9ff2f]/10 hover:text-[#d9ff2f] ${
+                      index === currentRoleIndex
+                        ? 'bg-[#d9ff2f]/12 border-[#d9ff2f]/80 text-[#d9ff2f]'
+                        : 'bg-white/5 border-white/35 text-white/70'
+                    }`}
+                  >
+                    {role}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="surface-card rounded-2xl bg-black/30 backdrop-blur-md border-white/35 p-5 shadow-[0_0_40px_rgba(0,0,0,0.22)] transition-all duration-300 hover:-translate-y-1 hover:bg-black/45 hover:border-[#d9ff2f]/65 hover:shadow-[0_0_55px_rgba(217,255,47,0.16)]">
+              <p className="text-[#d9ff2f] text-[0.72rem] tracking-[0.32em] uppercase font-semibold mb-3">Creative direction</p>
+              <p className="text-white/85 text-sm leading-relaxed">Building scalable web applications while exploring the depths of Data Structures, Artificial Intelligence, and Embedded Systems.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
