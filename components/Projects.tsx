@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Github, ChevronDown } from 'lucide-react';
+import { Github, ChevronDown, Lock } from 'lucide-react';
 import { PROJECTS } from '@/constants';
 import ProjectImage from './ProjectImage';
 import { useState, useEffect } from 'react';
@@ -20,11 +20,12 @@ export default function Projects() {
   }, []);
   
   const featuredPriority: Record<string, number> = {
-    'vortex-holomap': 0,
-    'clipstack': 1,
-    'unipass': 2,
-    'civiclens-ai': 3,
-    'mindcare-ai': 4,
+    'thirdeye': 0,
+    'vortex-holomap': 1,
+    'clipstack': 2,
+    'unipass': 3,
+    'civiclens-ai': 4,
+    'mindcare-ai': 5,
   };
 
   const featuredProjects = PROJECTS
@@ -58,139 +59,171 @@ export default function Projects() {
     },
   };
 
-  const renderProjectCard = (project: typeof PROJECTS[0]) => (
-    <motion.div
-      key={project.id}
-      variants={itemVariants}
-      className="group surface-card rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#d9ff2f]/35"
-      whileHover={isMobile ? {} : { y: -8, scale: 1.02 }}
-      transition={{ duration: 0.3 }}
-    >
-      {/* Image Container */}
-      <div className="relative w-full aspect-video bg-gradient-to-br from-black via-[#121212] to-black overflow-hidden">
-        {/* Project Image */}
-        <ProjectImage 
-          src={project.image}
-          alt={project.title}
-        />
-        {/* Enhanced Overlay with Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-transparent opacity-70 group-hover:opacity-50 transition-opacity" />
-        
-        {/* Glow Effect on Hover - Disabled on mobile */}
-        {!isMobile && (
-          <div className="absolute inset-0 bg-gradient-to-tr from-[#d9ff2f]/0 via-[#d9ff2f]/0 to-transparent group-hover:from-[#d9ff2f]/10 group-hover:via-[#d9ff2f]/7 group-hover:to-transparent transition-all duration-500" />
-        )}
-        
-        {/* Work in Progress Badge */}
-        {!project.githubUrl && project.id === 'clipstack' && (
-          <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#f59e0b]/95 rounded-full border border-[#fbbf24]/70 z-10">
-            <span className="text-xs font-semibold text-black">Work in Progress</span>
+  const renderProjectCard = (project: typeof PROJECTS[0]) => {
+    if (project.id === 'thirdeye') {
+      return (
+        <motion.div
+          key={project.id}
+          variants={itemVariants}
+          className="group surface-card rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#d9ff2f]/35"
+          whileHover={isMobile ? {} : { y: -8, scale: 1.02 }}
+          transition={{ duration: 0.3 }}
+        >
+          <div className="relative w-full aspect-video overflow-hidden bg-gradient-to-br from-black via-[#080808] to-black">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(217,255,47,0.24),transparent_30%),radial-gradient(circle_at_70%_70%,rgba(255,255,255,0.08),transparent_28%)] blur-2xl opacity-90" />
+            <div className="absolute inset-0 bg-black/55 backdrop-blur-xl" />
+            <div className="absolute inset-0 flex items-center justify-center border border-white/10">
+              <div className="flex items-center gap-2 rounded-full border border-[#d9ff2f]/55 bg-black/60 px-4 py-2 shadow-[0_0_30px_rgba(217,255,47,0.12)]">
+                <Lock className="w-4 h-4 text-[#d9ff2f]" />
+                <span className="text-sm font-semibold tracking-[0.24em] uppercase text-[#d9ff2f]">ThirdEye</span>
+              </div>
+            </div>
           </div>
-        )}
-
-        {/* STRATOS.f1 Badge */}
-        {project.id === 'stratos-f1' && (
-          <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#e11d48]/95 rounded-full border border-[#fb7185]/70 z-10">
-            <span className="text-xs font-semibold text-white">Beta v1.0.0</span>
+          <div className="p-5 sm:p-7 relative">
+            <div className="absolute top-0 left-0 right-0 h-px accent-line" />
+            <h3 className="display-font text-2xl sm:text-3xl mb-2 group-hover:text-[#d9ff2f] transition-all duration-300">
+              ThirdEye
+            </h3>
+            <p className="text-white/40 text-sm uppercase tracking-[0.28em]">Locked preview</p>
           </div>
-        )}
+        </motion.div>
+      );
+    }
 
-        {/* Beta Badge */}
-        {project.id === 'cypher-wav' && (
-          <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#a78bfa]/95 rounded-full border border-[#c4b5fd]/70 z-10">
-            <span className="text-xs font-semibold text-black">Beta v1.0.0</span>
-          </div>
-        )}
+    return (
+      <motion.div
+        key={project.id}
+        variants={itemVariants}
+        className="group surface-card rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#d9ff2f]/35"
+        whileHover={isMobile ? {} : { y: -8, scale: 1.02 }}
+        transition={{ duration: 0.3 }}
+      >
+        {/* Image Container */}
+        <div className="relative w-full aspect-video bg-gradient-to-br from-black via-[#121212] to-black overflow-hidden">
+          {/* Project Image */}
+          <ProjectImage 
+            src={project.image}
+            alt={project.title}
+          />
+          {/* Enhanced Overlay with Gradient */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-transparent opacity-70 group-hover:opacity-50 transition-opacity" />
+          
+          {/* Glow Effect on Hover - Disabled on mobile */}
+          {!isMobile && (
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#d9ff2f]/0 via-[#d9ff2f]/0 to-transparent group-hover:from-[#d9ff2f]/10 group-hover:via-[#d9ff2f]/7 group-hover:to-transparent transition-all duration-500" />
+          )}
+          
+          {/* Work in Progress Badge */}
+          {!project.githubUrl && project.id === 'clipstack' && (
+            <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#f59e0b]/95 rounded-full border border-[#fbbf24]/70 z-10">
+              <span className="text-xs font-semibold text-black">Work in Progress</span>
+            </div>
+          )}
 
-        {/* Vortex HoloMap Version Badge */}
-        {project.id === 'vortex-holomap' && (
-          <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#22c55e]/95 rounded-full border border-[#86efac]/70 z-10">
-            <span className="text-xs font-semibold text-black">v1.0.0</span>
-          </div>
-        )}
+          {/* STRATOS.f1 Badge */}
+          {project.id === 'stratos-f1' && (
+            <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#e11d48]/95 rounded-full border border-[#fb7185]/70 z-10">
+              <span className="text-xs font-semibold text-white">Beta v1.0.0</span>
+            </div>
+          )}
 
-        {/* Legacy Badge */}
-        {['chatbot-jarvis', 'expense-tracker'].includes(project.id) && (
-          <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#94a3b8]/95 rounded-full border border-[#cbd5e1]/70 z-10">
-            <span className="text-xs font-semibold text-black">Legacy Build (No Active Updates)</span>
-          </div>
-        )}
-        
-        {/* Hardware Project Badge */}
-        {!project.githubUrl && project.id === 'smoke-detector' && (
-          <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#3b82f6]/95 rounded-full border border-[#60a5fa]/70 z-10">
-            <span className="text-xs font-semibold text-black">Hardware Project</span>
-          </div>
-        )}
+          {/* Beta Badge */}
+          {project.id === 'cypher-wav' && (
+            <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#a78bfa]/95 rounded-full border border-[#c4b5fd]/70 z-10">
+              <span className="text-xs font-semibold text-black">Beta v1.0.0</span>
+            </div>
+          )}
 
-        {/* Discontinued Project Badge */}
-        {['mindcare-ai', 'vitemate'].includes(project.id) && (
-          <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#d9ff2f]/90 rounded-full border border-[#ecff63]/60 z-10 max-w-[88%]">
-            <span className="text-[10px] sm:text-xs font-semibold text-black leading-tight">
-              Discontinued - Source Code Available on GitHub
-            </span>
-          </div>
-        )}
-        
-        {/* GitHub Link - Only show if URL exists */}
-        {project.githubUrl && (
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="absolute top-4 right-4 p-2.5 bg-black/75 rounded-full border border-white/20 hover:border-[#d9ff2f]/45 hover:scale-110 transition-all z-10"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Github className="w-5 h-5" />
-          </a>
-        )}
+          {/* Vortex HoloMap Version Badge */}
+          {project.id === 'vortex-holomap' && (
+            <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#22c55e]/95 rounded-full border border-[#86efac]/70 z-10">
+              <span className="text-xs font-semibold text-black">v1.0.0</span>
+            </div>
+          )}
 
-        {project.liveUrl && (
-          <a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`absolute top-16 right-4 px-3.5 py-1.5 text-xs sm:text-sm font-bold tracking-wide uppercase rounded-lg border transition-all z-10 ${
-              project.id === 'cypher-wav'
-                ? 'bg-[#06b6d4]/95 text-black border-[#67e8f9]/80 hover:bg-[#22d3ee]'
-                : 'bg-[#3b82f6]/95 text-black border-[#60a5fa]/70 hover:bg-[#60a5fa]'
-            }`}
-            onClick={(e) => e.stopPropagation()}
-          >
-            {project.id === 'cypher-wav' ? 'Download' : 'Live'}
-          </a>
-        )}
-      </div>
+          {/* Legacy Badge */}
+          {['chatbot-jarvis', 'expense-tracker'].includes(project.id) && (
+            <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#94a3b8]/95 rounded-full border border-[#cbd5e1]/70 z-10">
+              <span className="text-xs font-semibold text-black">Legacy Build (No Active Updates)</span>
+            </div>
+          )}
+          
+          {/* Hardware Project Badge */}
+          {!project.githubUrl && project.id === 'smoke-detector' && (
+            <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#3b82f6]/95 rounded-full border border-[#60a5fa]/70 z-10">
+              <span className="text-xs font-semibold text-black">Hardware Project</span>
+            </div>
+          )}
 
-      {/* Content */}
-      <div className="p-5 sm:p-7 relative">
-        {/* Subtle top glow */}
-        <div className="absolute top-0 left-0 right-0 h-px accent-line" />
-        
-        <h3 className="display-font text-2xl sm:text-3xl mb-3 group-hover:text-[#d9ff2f] transition-all duration-300">
-          {project.title}
-        </h3>
-        <p className="text-white/62 text-sm sm:text-base mb-5 leading-relaxed group-hover:text-white/78 transition-colors">
-          {project.description}
-        </p>
-        
-        {/* Technologies */}
-        <div className="flex flex-wrap gap-2">
-          {project.technologies.map((tech, index) => (
-            <motion.span
-              key={tech}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.05 }}
-              className="px-2.5 py-1 text-xs bg-black/65 border border-white/15 hover:border-[#d9ff2f]/40 text-white/65 hover:text-white transition-all cursor-default"
+          {/* Discontinued Project Badge */}
+          {['mindcare-ai', 'vitemate'].includes(project.id) && (
+            <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#d9ff2f]/90 rounded-full border border-[#ecff63]/60 z-10 max-w-[88%]">
+              <span className="text-[10px] sm:text-xs font-semibold text-black leading-tight">
+                Discontinued - Source Code Available on GitHub
+              </span>
+            </div>
+          )}
+          
+          {/* GitHub Link - Only show if URL exists */}
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute top-4 right-4 p-2.5 bg-black/75 rounded-full border border-white/20 hover:border-[#d9ff2f]/45 hover:scale-110 transition-all z-10"
+              onClick={(e) => e.stopPropagation()}
             >
-              {tech}
-            </motion.span>
-          ))}
+              <Github className="w-5 h-5" />
+            </a>
+          )}
+
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`absolute top-16 right-4 px-3.5 py-1.5 text-xs sm:text-sm font-bold tracking-wide uppercase rounded-lg border transition-all z-10 ${
+                project.id === 'cypher-wav'
+                  ? 'bg-[#06b6d4]/95 text-black border-[#67e8f9]/80 hover:bg-[#22d3ee]'
+                  : 'bg-[#3b82f6]/95 text-black border-[#60a5fa]/70 hover:bg-[#60a5fa]'
+              }`}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {project.id === 'cypher-wav' ? 'Download' : 'Live'}
+            </a>
+          )}
         </div>
-      </div>
-    </motion.div>
-  );
+
+        {/* Content */}
+        <div className="p-5 sm:p-7 relative">
+          {/* Subtle top glow */}
+          <div className="absolute top-0 left-0 right-0 h-px accent-line" />
+          
+          <h3 className="display-font text-2xl sm:text-3xl mb-3 group-hover:text-[#d9ff2f] transition-all duration-300">
+            {project.title}
+          </h3>
+          <p className="text-white/62 text-sm sm:text-base mb-5 leading-relaxed group-hover:text-white/78 transition-colors">
+            {project.description}
+          </p>
+          
+          {/* Technologies */}
+          <div className="flex flex-wrap gap-2">
+            {project.technologies.map((tech, index) => (
+              <motion.span
+                key={tech}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: index * 0.05 }}
+                className="px-2.5 py-1 text-xs bg-black/65 border border-white/15 hover:border-[#d9ff2f]/40 text-white/65 hover:text-white transition-all cursor-default"
+              >
+                {tech}
+              </motion.span>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+    );
+  };
 
   return (
     <section id="projects" className="min-h-screen px-4 sm:px-6 py-16 sm:py-20">

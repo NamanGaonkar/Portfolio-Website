@@ -45,6 +45,15 @@ export const PERSONAL_INFO = {
 
 export const PROJECTS: Project[] = [
   {
+    id: "thirdeye",
+    title: "ThirdEye",
+    description: "A confidential final-year capstone project focused on an undisclosed problem space, built around practical software systems, intelligent workflow design, and a polished user experience.",
+    image: "/projects/thirdeye.png",
+    technologies: ["Next.js", "TypeScript", "AI/ML", "Full-Stack"],
+    githubUrl: "",
+    featured: true
+  },
+  {
     id: "cypher-wav",
     title: "CYPHER.WAV",
     description: "Cyberpunk-inspired standalone desktop music streamer with instant search and real-time playback, built with a custom PyQt6 interface and threaded background processing.",
