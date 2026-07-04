@@ -7,7 +7,6 @@ import Education from '@/components/Education'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import AnimatedBackground from '@/components/AnimatedBackground'
-import FloatingAstronaut from '@/components/FloatingAstronaut'
 
 export default function Home() {
   return (
@@ -19,9 +18,6 @@ export default function Home() {
 
       {/* Navigation */}
       <Navbar />
-
-      {/* Draggable astronaut */}
-      <FloatingAstronaut />
 
       {/* Sections */}
       <div id="home">
