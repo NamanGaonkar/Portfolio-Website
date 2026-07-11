@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Github, ChevronDown, Lock } from 'lucide-react';
+import { Github, ChevronDown } from 'lucide-react';
 import { PROJECTS } from '@/constants';
 import ProjectImage from './ProjectImage';
 import { useState, useEffect } from 'react';
@@ -21,10 +21,10 @@ export default function Projects() {
   
   const featuredPriority: Record<string, number> = {
     'thirdeye': 0,
-    'vortex-holomap': 1,
-    'clipstack': 2,
-    'unipass': 3,
-    'civiclens-ai': 4,
+    'civiclens-ai': 1,
+    'vortex-holomap': 2,
+    'clipstack': 3,
+    'unipass': 4,
     'mindcare-ai': 5,
   };
 
@@ -60,36 +60,6 @@ export default function Projects() {
   };
 
   const renderProjectCard = (project: typeof PROJECTS[0]) => {
-    if (project.id === 'thirdeye') {
-      return (
-        <motion.div
-          key={project.id}
-          variants={itemVariants}
-          className="group surface-card rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#d9ff2f]/35"
-          whileHover={isMobile ? {} : { y: -8, scale: 1.02 }}
-          transition={{ duration: 0.3 }}
-        >
-          <div className="relative w-full aspect-video overflow-hidden bg-gradient-to-br from-black via-[#080808] to-black">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(217,255,47,0.24),transparent_30%),radial-gradient(circle_at_70%_70%,rgba(255,255,255,0.08),transparent_28%)] blur-2xl opacity-90" />
-            <div className="absolute inset-0 bg-black/55 backdrop-blur-xl" />
-            <div className="absolute inset-0 flex items-center justify-center border border-white/10">
-              <div className="flex items-center gap-2 rounded-full border border-[#d9ff2f]/55 bg-black/60 px-4 py-2 shadow-[0_0_30px_rgba(217,255,47,0.12)]">
-                <Lock className="w-4 h-4 text-[#d9ff2f]" />
-                <span className="text-sm font-semibold tracking-[0.24em] uppercase text-[#d9ff2f]">ThirdEye</span>
-              </div>
-            </div>
-          </div>
-          <div className="p-5 sm:p-7 relative">
-            <div className="absolute top-0 left-0 right-0 h-px accent-line" />
-            <h3 className="display-font text-2xl sm:text-3xl mb-2 group-hover:text-[#d9ff2f] transition-all duration-300">
-              ThirdEye
-            </h3>
-            <p className="text-white/40 text-sm uppercase tracking-[0.28em]">Locked preview</p>
-          </div>
-        </motion.div>
-      );
-    }
-
     return (
       <motion.div
         key={project.id}
@@ -115,6 +85,13 @@ export default function Projects() {
           
           {/* Work in Progress Badge */}
           {!project.githubUrl && project.id === 'clipstack' && (
+            <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#f59e0b]/95 rounded-full border border-[#fbbf24]/70 z-10">
+              <span className="text-xs font-semibold text-black">Work in Progress</span>
+            </div>
+          )}
+
+          {/* ThirdEye Final Year Project Badge */}
+          {project.id === 'thirdeye' && (
             <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#f59e0b]/95 rounded-full border border-[#fbbf24]/70 z-10">
               <span className="text-xs font-semibold text-black">Work in Progress</span>
             </div>

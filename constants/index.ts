@@ -47,10 +47,11 @@ export const PROJECTS: Project[] = [
   {
     id: "thirdeye",
     title: "ThirdEye",
-    description: "A confidential final-year capstone project focused on an undisclosed problem space, built around practical software systems, intelligent workflow design, and a polished user experience.",
+    description: "THIRD EYE: Intelligent Crowd Safety System. THIRD EYE is a real-time monitoring platform engineered to enhance safety and situational awareness in public environments. The system leverages integrated edge hardware and AI NPU acceleration to process multi-modal sensor inputs, enabling the tracking of crowd dynamics and the identification of anomalies for proactive management. Currently in the early stages of development, the platform features a centralized dashboard designed to visualize live system telemetry and performance analytics through a refined, user-centric interface.",
     image: "/projects/thirdeye.png",
-    technologies: ["Next.js", "TypeScript", "AI/ML", "Full-Stack"],
-    githubUrl: "",
+    technologies: ["Hardware + Software", "AI NPU Acceleration", "Edge Computing", "Multi-Modal Sensors", "Real-Time Dashboard", "Final Year Project"],
+    githubUrl: "https://github.com/NamanGaonkar/THIRDEYE-ShowCase",
+    liveUrl: "https://thirdeye-show-case.vercel.app/",
     featured: true
   },
   {
