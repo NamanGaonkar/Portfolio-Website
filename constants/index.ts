@@ -60,7 +60,7 @@ export const PROJECTS: Project[] = [
     description: "A premium environmental dashboard that tracks hyper-local air quality and weather shifts in real time. The platform handles full data lifecycle management—fetching live telemetry streams, mapping metrics across dynamic coordinates, and storing snapshots in a relational database. It integrates an intelligent analysis engine to process raw JSON datasets, running predictive what-if climate simulations and generating context-specific carbon reduction paths.",
     image: "/projects/terrapulse.jpeg",
     technologies: ["React", "Vite", "TypeScript", "Tailwind CSS", "Recharts", "Leaflet", "Supabase", "Gemini 2.5 Flash API", "Axios"],
-    githubUrl: "",
+    githubUrl: "https://github.com/NamanGaonkar/TerraPulse-AI",
     liveUrl: "",
     featured: true
   },
