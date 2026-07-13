@@ -61,7 +61,7 @@ export const PROJECTS: Project[] = [
     image: "/projects/terrapulse.jpeg",
     technologies: ["React", "Vite", "TypeScript", "Tailwind CSS", "Recharts", "Leaflet", "Supabase", "Gemini 2.5 Flash API", "Axios"],
     githubUrl: "https://github.com/NamanGaonkar/TerraPulse-AI",
-    liveUrl: "",
+    liveUrl: "https://terra-pulse-jev04vgl3-naman-gaonkars-projects.vercel.app/",
     featured: true
   },
   {
