@@ -2,7 +2,10 @@
 
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { PERSONAL_INFO } from '@/constants';
+import namanPortrait from '../design/naman.png';
+import namanMobilePortrait from '../design/naman2.webp';
 
 export default function Hero() {
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
@@ -16,6 +19,28 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center px-4 sm:px-6 overflow-hidden pt-28 pb-12 sm:pt-32 sm:pb-16">
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+        <Image
+          src={namanMobilePortrait}
+          alt="Naman portrait background"
+          priority
+          fill
+          sizes="100vw"
+          className="object-cover object-[62%_22%] opacity-17 sm:hidden blur-[1px] grayscale mix-blend-screen scale-[1.08]"
+        />
+        <Image
+          src={namanPortrait}
+          alt="Naman portrait background"
+          priority
+          fill
+          sizes="100vw"
+          className="hidden sm:block object-cover object-center sm:object-[76%_center] opacity-16 sm:opacity-18 lg:opacity-22 blur-[1px] grayscale mix-blend-screen scale-[1.14]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/82 to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/18 via-transparent to-black/60" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_44%,rgba(217,255,47,0.18),transparent_34%),radial-gradient(circle_at_16%_16%,rgba(217,255,47,0.08),transparent_28%)]" />
+      </div>
+
       <div className="site-container w-full relative z-10">
 
         {/* Text content */}
