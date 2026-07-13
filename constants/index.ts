@@ -55,6 +55,16 @@ export const PROJECTS: Project[] = [
     featured: true
   },
   {
+    id: "terrapulse",
+    title: "TerraPulse",
+    description: "A premium environmental dashboard that tracks hyper-local air quality and weather shifts in real time. The platform handles full data lifecycle management—fetching live telemetry streams, mapping metrics across dynamic coordinates, and storing snapshots in a relational database. It integrates an intelligent analysis engine to process raw JSON datasets, running predictive what-if climate simulations and generating context-specific carbon reduction paths.",
+    image: "/projects/terrapulse.jpeg",
+    technologies: ["React", "Vite", "TypeScript", "Tailwind CSS", "Recharts", "Leaflet", "Supabase", "Gemini 2.5 Flash API", "Axios"],
+    githubUrl: "",
+    liveUrl: "",
+    featured: true
+  },
+  {
     id: "cypher-wav",
     title: "CYPHER.WAV",
     description: "Cyberpunk-inspired standalone desktop music streamer with instant search and real-time playback, built with a custom PyQt6 interface and threaded background processing.",

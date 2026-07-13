@@ -21,11 +21,12 @@ export default function Projects() {
   
   const featuredPriority: Record<string, number> = {
     'thirdeye': 0,
-    'civiclens-ai': 1,
-    'vortex-holomap': 2,
-    'clipstack': 3,
-    'unipass': 4,
-    'mindcare-ai': 5,
+    'terrapulse': 1,
+    'civiclens-ai': 2,
+    'vortex-holomap': 3,
+    'clipstack': 4,
+    'unipass': 5,
+    'mindcare-ai': 6,
   };
 
   const featuredProjects = PROJECTS
@@ -90,7 +91,7 @@ export default function Projects() {
             </div>
           )}
 
-          {/* ThirdEye Final Year Project Badge */}
+          {/* ThirdEye Final Year Project - Work in Progress Badge */}
           {project.id === 'thirdeye' && (
             <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#f59e0b]/95 rounded-full border border-[#fbbf24]/70 z-10">
               <span className="text-xs font-semibold text-black">Work in Progress</span>
