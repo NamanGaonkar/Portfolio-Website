@@ -23,10 +23,11 @@ export default function Projects() {
     'thirdeye': 0,
     'terrapulse': 1,
     'civiclens-ai': 2,
-    'vortex-holomap': 3,
-    'clipstack': 4,
-    'unipass': 5,
-    'mindcare-ai': 6,
+    'trackify': 3,
+    'vortex-holomap': 4,
+    'clipstack': 5,
+    'unipass': 6,
+    'mindcare-ai': 7,
   };
 
   const featuredProjects = PROJECTS

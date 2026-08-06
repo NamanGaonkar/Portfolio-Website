@@ -94,6 +94,16 @@ export const PROJECTS: Project[] = [
     featured: true
   },
   {
+    id: "trackify",
+    title: "Trackify",
+    description: "A modern, lightweight team workspace and project management application built for seamless workflow coordination with full-stack authentication, email verification, role-based onboarding, and real-time database synchronization.",
+    image: "/projects/Trackify.png",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL", "Vercel"],
+    githubUrl: "https://github.com/NamanGaonkar/Trackify",
+    liveUrl: "https://trackify-xi-five.vercel.app/",
+    featured: true
+  },
+  {
     id: "unipass",
     title: "UniPass",
     description: "Real-time smart attendance system with secure, time-bound QR sessions for classroom check-ins, instant dashboard updates, and duplicate-mark prevention.",
