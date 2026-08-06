@@ -99,6 +99,13 @@ export default function Projects() {
             </div>
           )}
 
+          {/* Trackify Work in Progress Badge */}
+          {project.id === 'trackify' && (
+            <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#f59e0b]/95 rounded-full border border-[#fbbf24]/70 z-10">
+              <span className="text-xs font-semibold text-black">Work in Progress</span>
+            </div>
+          )}
+
           {/* STRATOS.f1 Badge */}
           {project.id === 'stratos-f1' && (
             <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#e11d48]/95 rounded-full border border-[#fb7185]/70 z-10">
