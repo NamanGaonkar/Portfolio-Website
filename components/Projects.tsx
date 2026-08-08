@@ -21,14 +21,15 @@ export default function Projects() {
   
   const featuredPriority: Record<string, number> = {
     'thirdeye': 0,
-    'nrg-industries': 1,
-    'terrapulse': 2,
-    'civiclens-ai': 3,
-    'trackify': 4,
-    'vortex-holomap': 5,
-    'clipstack': 6,
-    'unipass': 7,
-    'mindcare-ai': 8,
+    'cerebro': 1,
+    'nrg-industries': 2,
+    'terrapulse': 3,
+    'civiclens-ai': 4,
+    'trackify': 5,
+    'vortex-holomap': 6,
+    'clipstack': 7,
+    'unipass': 8,
+    'mindcare-ai': 9,
   };
 
   const featuredProjects = PROJECTS

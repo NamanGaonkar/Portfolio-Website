@@ -55,6 +55,15 @@ export const PROJECTS: Project[] = [
     featured: true
   },
   {
+    id: "cerebro",
+    title: "CEREBRO",
+    description: "A high-performance CLI search aggregator and stream downloader written in Go. Built on Charm's Bubble Tea and Lip Gloss, it dispatches concurrent scrapers and channels to fetch torrents, video games, YouTube videos (with automatic ffmpeg muxing), PDFs, EPUBs, and archive media in real time through a modern TUI.",
+    image: "/projects/cerebro.png",
+    technologies: ["Go", "Bubble Tea", "Lip Gloss", "CLI", "Concurrency", "TUI"],
+    githubUrl: "https://github.com/NamanGaonkar/CEREBRO",
+    featured: true
+  },
+  {
     id: "terrapulse",
     title: "TerraPulse",
     description: "A premium environmental dashboard that tracks hyper-local air quality and weather shifts in real time. The platform handles full data lifecycle management—fetching live telemetry streams, mapping metrics across dynamic coordinates, and storing snapshots in a relational database. It integrates an intelligent analysis engine to process raw JSON datasets, running predictive what-if climate simulations and generating context-specific carbon reduction paths.",
