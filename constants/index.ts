@@ -104,6 +104,16 @@ export const PROJECTS: Project[] = [
     featured: true
   },
   {
+    id: "nrg-industries",
+    title: "NRG Industries — Full-Stack Industrial SaaS & Quote Management System",
+    description: "Designed and engineered a full-stack corporate web application and quote management platform for modern industrial enterprises. Features dynamic product catalogs, automated lead generation with instant receipt downloads, and a secure Supabase-powered admin portal for lead tracking and database management.",
+    image: "/projects/NRG.png",
+    technologies: ["Next.js", "React", "Supabase", "PostgreSQL", "Tailwind CSS", "TypeScript"],
+    githubUrl: "",
+    liveUrl: "https://nrg-industries-internship-project-i.vercel.app/",
+    featured: true
+  },
+  {
     id: "unipass",
     title: "UniPass",
     description: "Real-time smart attendance system with secure, time-bound QR sessions for classroom check-ins, instant dashboard updates, and duplicate-mark prevention.",

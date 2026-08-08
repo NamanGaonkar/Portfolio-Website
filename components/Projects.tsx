@@ -21,13 +21,14 @@ export default function Projects() {
   
   const featuredPriority: Record<string, number> = {
     'thirdeye': 0,
-    'terrapulse': 1,
-    'civiclens-ai': 2,
-    'trackify': 3,
-    'vortex-holomap': 4,
-    'clipstack': 5,
-    'unipass': 6,
-    'mindcare-ai': 7,
+    'nrg-industries': 1,
+    'terrapulse': 2,
+    'civiclens-ai': 3,
+    'trackify': 4,
+    'vortex-holomap': 5,
+    'clipstack': 6,
+    'unipass': 7,
+    'mindcare-ai': 8,
   };
 
   const featuredProjects = PROJECTS
@@ -106,6 +107,13 @@ export default function Projects() {
             </div>
           )}
 
+          {/* NRG Industries Internship Badge */}
+          {project.id === 'nrg-industries' && (
+            <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#3b82f6]/95 rounded-full border border-[#60a5fa]/70 z-10">
+              <span className="text-xs font-semibold text-black">Internship Project</span>
+            </div>
+          )}
+
           {/* STRATOS.f1 Badge */}
           {project.id === 'stratos-f1' && (
             <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#e11d48]/95 rounded-full border border-[#fb7185]/70 z-10">
@@ -168,7 +176,7 @@ export default function Projects() {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={`absolute top-16 right-4 px-3.5 py-1.5 text-xs sm:text-sm font-bold tracking-wide uppercase rounded-lg border transition-all z-10 ${
+              className={`absolute top-4 right-4 px-3.5 py-1.5 text-xs sm:text-sm font-bold tracking-wide uppercase rounded-lg border transition-all z-10 ${
                 project.id === 'cypher-wav'
                   ? 'bg-[#06b6d4]/95 text-black border-[#67e8f9]/80 hover:bg-[#22d3ee]'
                   : 'bg-[#3b82f6]/95 text-black border-[#60a5fa]/70 hover:bg-[#60a5fa]'
