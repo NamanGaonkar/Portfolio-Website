@@ -23,13 +23,14 @@ export default function Projects() {
     'thirdeye': 0,
     'cerebro': 1,
     'nrg-industries': 2,
-    'terrapulse': 3,
-    'civiclens-ai': 4,
-    'trackify': 5,
-    'vortex-holomap': 6,
-    'clipstack': 7,
-    'unipass': 8,
-    'mindcare-ai': 9,
+    'baristahub': 3,
+    'terrapulse': 4,
+    'civiclens-ai': 5,
+    'trackify': 6,
+    'vortex-holomap': 7,
+    'clipstack': 8,
+    'unipass': 9,
+    'mindcare-ai': 10,
   };
 
   const featuredProjects = PROJECTS
@@ -110,6 +111,13 @@ export default function Projects() {
 
           {/* NRG Industries Internship Badge */}
           {project.id === 'nrg-industries' && (
+            <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#3b82f6]/95 rounded-full border border-[#60a5fa]/70 z-10">
+              <span className="text-xs font-semibold text-black">Internship Project</span>
+            </div>
+          )}
+
+          {/* Barista Hub Internship Badge */}
+          {project.id === 'baristahub' && (
             <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#3b82f6]/95 rounded-full border border-[#60a5fa]/70 z-10">
               <span className="text-xs font-semibold text-black">Internship Project</span>
             </div>

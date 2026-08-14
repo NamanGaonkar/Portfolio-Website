@@ -123,6 +123,15 @@ export const PROJECTS: Project[] = [
     featured: true
   },
   {
+    id: "baristahub",
+    title: "Barista Hub",
+    description: "An enterprise café management and POS platform that streamlines order workflows, item customizations, recipe-level inventory depletion, and multi-outlet master data with real-time revenue analytics.",
+    image: "/projects/baristahub.png",
+    technologies: ["React", "Node.js", "PostgreSQL", "Tailwind CSS", "REST APIs"],
+    githubUrl: "",
+    featured: true
+  },
+  {
     id: "unipass",
     title: "UniPass",
     description: "Real-time smart attendance system with secure, time-bound QR sessions for classroom check-ins, instant dashboard updates, and duplicate-mark prevention.",
