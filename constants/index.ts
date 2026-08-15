@@ -56,7 +56,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "cerebro",
-    title: "CEREBRO",
+    title: "Cerebro MAX",
     description: "A high-performance CLI search aggregator and stream downloader written in Go. Built on Charm's Bubble Tea and Lip Gloss, it dispatches concurrent scrapers and channels to fetch torrents, video games, YouTube videos (with automatic ffmpeg muxing), PDFs, EPUBs, and archive media in real time through a modern TUI.",
     image: "/projects/cerebro.png",
     technologies: ["Go", "Bubble Tea", "Lip Gloss", "CLI", "Concurrency", "TUI"],
