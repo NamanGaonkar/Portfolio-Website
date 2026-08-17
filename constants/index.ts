@@ -132,6 +132,15 @@ export const PROJECTS: Project[] = [
     featured: true
   },
   {
+    id: "utsavdesk-ai",
+    title: "UtsavDesk AI",
+    description: "A full-stack platform built to automate festival marketing creatives and customized greeting cards for brands and creators. Users can generate on-brand high-resolution visuals and marketing copy in seconds instead of designing from scratch or hiring agencies for each holiday.",
+    image: "/projects/utsavdesk.png",
+    technologies: ["React", "TypeScript", "Vite", "Tailwind CSS", "Node.js", "Express", "PostgreSQL", "REST APIs", "Groq API", "HTML5 Canvas"],
+    githubUrl: "",
+    featured: true
+  },
+  {
     id: "unipass",
     title: "UniPass",
     description: "Real-time smart attendance system with secure, time-bound QR sessions for classroom check-ins, instant dashboard updates, and duplicate-mark prevention.",
