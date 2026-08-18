@@ -6,7 +6,7 @@ import { SOCIAL_LINKS } from '@/constants';
 
 export default function Contact() {
   return (
-    <section id="contact" className="min-h-[60vh] px-4 sm:px-6 py-16 sm:py-20 relative overflow-hidden">
+    <section id="contact" className="min-h-[60vh] px-4 sm:px-6 pt-24 sm:pt-28 pb-16 sm:pb-20 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] h-[520px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(217, 255, 47, 0.16) 0%, transparent 70%)', filter: 'blur(55px)' }} />
       </div>
@@ -18,6 +18,20 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
+          <motion.div
+            className="flex justify-center mb-10 sm:mb-12"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <img
+              src="/cool.gif"
+              alt="Creative collaboration animation"
+              className="w-44 sm:w-56 md:w-64 h-auto rounded-xl border border-white/12 shadow-[0_0_30px_rgba(217,255,47,0.18)]"
+            />
+          </motion.div>
+
           <h2 className="section-title mb-4 sm:mb-6">
             Let&apos;s Build Together
           </h2>
