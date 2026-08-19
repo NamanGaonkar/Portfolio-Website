@@ -55,6 +55,28 @@ export default function Hero() {
               Get in Touch
             </a>
           </div>
+
+          {/* SubZero Studio Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.15 }}
+            className="mt-6 sm:mt-8"
+          >
+            <a
+              href="https://sub-zero-studio.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-6 sm:px-8 py-3 sm:py-3.5 bg-gradient-to-r from-[#0a0a0a] to-[#1a1a1a] border border-[#d9ff2f]/35 text-white font-bold text-xs sm:text-sm tracking-widest uppercase rounded-xl hover:border-[#d9ff2f]/70 hover:bg-gradient-to-r hover:from-[#0f0f0f] hover:to-[#252525] hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_0_35px_rgba(217,255,47,0.22)] active:scale-[0.97] transition-all duration-300"
+            >
+              <img
+                src="/subzero-logo.png"
+                alt="SubZero Studio"
+                className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
+              />
+              <span>Go to SubZero Studio</span>
+            </a>
+          </motion.div>
         </motion.div>
 
         <div className="relative z-20 mt-10 w-full max-w-2xl lg:mt-0 lg:absolute lg:right-4 lg:top-1/2 lg:-translate-y-1/2 lg:w-[38vw] lg:max-w-[470px]">
