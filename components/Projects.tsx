@@ -26,12 +26,13 @@ export default function Projects() {
     'baristahub': 3,
     'terrapulse': 4,
     'utsavdesk-ai': 5,
-    'civiclens-ai': 6,
-    'trackify': 7,
-    'vortex-holomap': 8,
-    'clipstack': 9,
-    'unipass': 10,
-    'mindcare-ai': 11,
+    'genosha': 6,
+    'civiclens-ai': 7,
+    'trackify': 8,
+    'vortex-holomap': 9,
+    'clipstack': 10,
+    'unipass': 11,
+    'mindcare-ai': 12,
   };
 
   const featuredProjects = PROJECTS

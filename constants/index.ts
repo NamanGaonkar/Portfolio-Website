@@ -141,6 +141,16 @@ export const PROJECTS: Project[] = [
     featured: true
   },
   {
+    id: "genosha",
+    title: "GENOSHA",
+    description: "A full-stack freelancer marketplace platform built for the gig economy. Clients post jobs, freelancers submit proposals, and both parties collaborate through real-time chat, milestone tracking, and video calls.",
+    image: "/projects/genosha.png",
+    technologies: ["React", "Node.js", "PostgreSQL", "Real-Time Chat", "Milestone Tracking", "Video Calls"],
+    githubUrl: "",
+    liveUrl: "https://genosha-inf-260.vercel.app/",
+    featured: true
+  },
+  {
     id: "unipass",
     title: "UniPass",
     description: "Real-time smart attendance system with secure, time-bound QR sessions for classroom check-ins, instant dashboard updates, and duplicate-mark prevention.",
