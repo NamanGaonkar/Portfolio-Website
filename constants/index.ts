@@ -55,6 +55,15 @@ export const PROJECTS: Project[] = [
     featured: true
   },
   {
+    id: "whis",
+    title: "WHIS",
+    description: "A hyper-lean, token-surgical AI coding CLI with an ember-on-black TUI. Built in Go with Bubble Tea and Lip Gloss, WHIS supports local Ollama models and remote DeepSeek, Anthropic, OpenAI, and OpenRouter providers, with concurrent tools, browser automation, session recovery, and safe terminal workflows.",
+    image: "/projects/whis.png",
+    technologies: ["Go", "Bubble Tea", "Lip Gloss", "Ollama", "AI Coding CLI", "Browser Automation", "TUI"],
+    githubUrl: "https://github.com/NamanGaonkar/WHIS---CLi-coder",
+    featured: true
+  },
+  {
     id: "cerebro",
     title: "Cerebro MAX",
     description: "A high-performance CLI search aggregator and stream downloader written in Go. Built on Charm's Bubble Tea and Lip Gloss, it dispatches concurrent scrapers and channels to fetch torrents, video games, YouTube videos (with automatic ffmpeg muxing), PDFs, EPUBs, and archive media in real time through a modern TUI.",

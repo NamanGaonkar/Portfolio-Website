@@ -21,18 +21,19 @@ export default function Projects() {
   
   const featuredPriority: Record<string, number> = {
     'thirdeye': 0,
-    'cerebro': 1,
-    'nrg-industries': 2,
-    'baristahub': 3,
-    'terrapulse': 4,
-    'utsavdesk-ai': 5,
-    'genosha': 6,
-    'civiclens-ai': 7,
-    'trackify': 8,
-    'vortex-holomap': 9,
-    'clipstack': 10,
-    'unipass': 11,
-    'mindcare-ai': 12,
+    'whis': 1,
+    'cerebro': 2,
+    'nrg-industries': 3,
+    'baristahub': 4,
+    'terrapulse': 5,
+    'utsavdesk-ai': 6,
+    'genosha': 7,
+    'civiclens-ai': 8,
+    'trackify': 9,
+    'vortex-holomap': 10,
+    'clipstack': 11,
+    'unipass': 12,
+    'mindcare-ai': 13,
   };
 
   const featuredProjects = PROJECTS
