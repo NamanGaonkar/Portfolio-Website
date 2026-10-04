@@ -250,6 +250,14 @@ export const SKILLS: Skill[] = [
 
 export const EXPERIENCES: Experience[] = [
   {
+    id: "infipre",
+    company: "InfiPre IT Services (OPC) Pvt. Ltd.",
+    role: "Software Development Intern",
+    period: "Aug 2026 - Oct 2026",
+    location: "Sanquelim, Goa",
+    description: "Engineered full-stack features and production modules across enterprise web and mobile applications (PowerFleet360, Genosha, UtsavDesk), architecting normalized relational database schemas with 30+ tables to streamline system data integrity. Developed and integrated secure RESTful API endpoints for cross-platform data synchronization, implemented multilingual AI pipelines for dynamic client workflows, and collaborated in an Agile setting conducting regression testing, technical audits, and staging deployments."
+  },
+  {
     id: "CODEXINTERN",
     company: "CODEXINTERN",
     role: "Web Development Intern",
