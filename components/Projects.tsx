@@ -76,6 +76,13 @@ const TILE_WIDTHS =
   '(max-width: 640px) 170px, (max-width: 1024px) 220px, (max-width: 1280px) 250px, 280px';
 const MAX_TECHS = 3;
 
+/* Modal motion — a short ease-out tween, not a spring.
+   Springs overshoot and scale re-rasterises text every frame, which reads as
+   jitter/flicker rather than "smooth". Opacity + a short translate only. */
+const MODAL_EASE = [0.22, 1, 0.36, 1] as const;
+const MODAL_FADE = { duration: 0.2, ease: MODAL_EASE } as const;
+const MODAL_PANEL = { duration: 0.3, ease: MODAL_EASE } as const;
+
 function ProjectTile({
   project,
   onOpen,
@@ -254,25 +261,33 @@ function ProjectModal({
   return (
     <AnimatePresence>
       {project && (
-        <div className="fixed inset-0 z-50 flex items-end justify-center sm:items-center sm:p-4">
+        <div
+          key={project.id}
+          className="fixed inset-0 z-50 flex items-end justify-center sm:items-center sm:p-4"
+        >
+          {/* Backdrop: blur is expensive to repaint, so the blur stays on a
+              static layer and only opacity animates over it. */}
+          <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={MODAL_FADE}
             onClick={onClose}
-            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+            className="absolute inset-0"
           />
 
           <motion.div
             role="dialog"
             aria-modal="true"
             aria-label={`${project.title} details`}
-            initial={{ opacity: 0, y: 40, scale: 0.97 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 30, scale: 0.98 }}
-            transition={{ type: 'spring', stiffness: 320, damping: 30 }}
-            className="surface-card relative w-full max-h-[88vh] overflow-y-auto rounded-t-2xl sm:max-w-2xl sm:rounded-2xl"
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 18 }}
+            transition={MODAL_PANEL}
+            /* Scroll lives on an inner element, not on the animated node —
+               an animated scroll container repaints and jitters. */
+            className="surface-card relative flex max-h-[88vh] w-full flex-col overflow-hidden rounded-t-2xl sm:max-w-2xl sm:rounded-2xl"
           >
             <div className="relative aspect-[16/9] w-full shrink-0 overflow-hidden bg-gradient-to-br from-[#140f0a] to-black">
               <ProjectImage
@@ -302,7 +317,7 @@ function ProjectModal({
               </button>
             </div>
 
-            <div className="relative p-5 sm:p-6">
+            <div className="relative min-h-0 flex-1 overflow-y-auto p-5 sm:p-6">
               <div className="absolute left-0 right-0 top-0 h-px accent-line" />
 
               <h3 className="display-font mb-3 text-2xl text-white sm:text-3xl">
