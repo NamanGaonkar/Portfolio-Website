@@ -1,7 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { Github, ExternalLink, Download, ChevronLeft, ChevronRight } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Github, ExternalLink, Download, ChevronLeft, ChevronRight, Info, X } from 'lucide-react';
 import { PROJECTS, type Project } from '@/constants';
 import ProjectImage from './ProjectImage';
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -76,7 +76,13 @@ const TILE_WIDTHS =
   '(max-width: 640px) 170px, (max-width: 1024px) 220px, (max-width: 1280px) 250px, 280px';
 const MAX_TECHS = 3;
 
-function ProjectTile({ project }: { project: Project }) {
+function ProjectTile({
+  project,
+  onOpen,
+}: {
+  project: Project;
+  onOpen: (project: Project) => void;
+}) {
   const badge = BADGES[project.id];
   const isDownload = project.id === 'cypher-wav';
   const techs = project.technologies.slice(0, MAX_TECHS);
@@ -110,13 +116,7 @@ function ProjectTile({ project }: { project: Project }) {
             </span>
           )}
 
-          {/* Hover description — pointer-events hidden so the tile stays tappable */}
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 md:block">
-            <p className="line-clamp-3 bg-gradient-to-t from-black via-black/92 to-transparent p-3 text-[11px] leading-snug text-white/85">
-              {project.description}
-            </p>
           </div>
-        </div>
 
         {/* Meta */}
         <div className="relative flex flex-1 flex-col p-3">
@@ -146,6 +146,16 @@ function ProjectTile({ project }: { project: Project }) {
 
           {/* mt-auto pins the link row to the bottom so it aligns across tiles */}
           <div className="mt-auto flex items-center gap-1.5 pt-2.5">
+            <button
+              type="button"
+              onClick={() => onOpen(project)}
+              aria-label={`More details about ${project.title}`}
+              aria-haspopup="dialog"
+              className="rounded-md border border-white/15 bg-black/60 p-1.5 text-white/75 transition-colors hover:border-[#ff6b1a]/50 hover:text-[#ff6b1a]"
+            >
+              <Info className="h-3.5 w-3.5" />
+            </button>
+
             {project.githubUrl && (
               <a
                 href={project.githubUrl}
@@ -194,6 +204,176 @@ function ProjectTile({ project }: { project: Project }) {
 }
 
 /* -------------------------------------------------------------------------- */
+/*                                  MODAL                                     */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Tap/click details dialog.
+ *
+ * Replaces the old desktop-only hover overlay, which meant the description was
+ * unreachable on touch devices. Behaviour is identical on phone and desktop:
+ * bottom sheet on small screens, centred dialog from `sm` up.
+ *
+ * Handles Escape, backdrop dismissal, focus placement and body scroll lock.
+ */
+function ProjectModal({
+  project,
+  onClose,
+}: {
+  project: Project | null;
+  onClose: () => void;
+}) {
+  const closeRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!project) return;
+
+    const prevOverflow = document.body.style.overflow;
+    const prevPadding = document.body.style.paddingRight;
+    // Lock scroll, but give back the scrollbar width so the page doesn't jump
+    const scrollbar = window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.overflow = 'hidden';
+    if (scrollbar > 0) document.body.style.paddingRight = `${scrollbar}px`;
+    closeRef.current?.focus();
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', onKey);
+
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      document.body.style.paddingRight = prevPadding;
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [project, onClose]);
+
+  const badge = project ? BADGES[project.id] : undefined;
+  const isDownload = project?.id === 'cypher-wav';
+
+  return (
+    <AnimatePresence>
+      {project && (
+        <div className="fixed inset-0 z-50 flex items-end justify-center sm:items-center sm:p-4">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={onClose}
+            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+          />
+
+          <motion.div
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${project.title} details`}
+            initial={{ opacity: 0, y: 40, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 30, scale: 0.98 }}
+            transition={{ type: 'spring', stiffness: 320, damping: 30 }}
+            className="surface-card relative w-full max-h-[88vh] overflow-y-auto rounded-t-2xl sm:max-w-2xl sm:rounded-2xl"
+          >
+            <div className="relative aspect-[16/9] w-full shrink-0 overflow-hidden bg-gradient-to-br from-[#140f0a] to-black">
+              <ProjectImage
+                src={project.image}
+                alt={project.title}
+                sizes="(max-width: 640px) 100vw, 672px"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+
+              {badge && (
+                <span
+                  title={badge.title}
+                  className={`absolute left-4 top-4 max-w-[calc(100%_-_2rem)] truncate rounded-full border px-2.5 py-1 text-[11px] font-semibold leading-tight backdrop-blur-sm ${badge.style}`}
+                >
+                  {badge.label}
+                </span>
+              )}
+
+              <button
+                ref={closeRef}
+                type="button"
+                onClick={onClose}
+                aria-label="Close details"
+                className="absolute right-3 top-3 rounded-lg border border-white/20 bg-black/70 p-2 text-white/80 transition-colors hover:border-[#ff6b1a]/50 hover:text-[#ff6b1a]"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+
+            <div className="relative p-5 sm:p-6">
+              <div className="absolute left-0 right-0 top-0 h-px accent-line" />
+
+              <h3 className="display-font mb-3 text-2xl text-white sm:text-3xl">
+                {project.title}
+              </h3>
+
+              <p className="mb-5 text-sm leading-relaxed text-white/75 sm:text-base">
+                {project.description}
+              </p>
+
+              <h4 className="mb-2 text-[0.7rem] uppercase tracking-[0.28em] text-[#ff6b1a]">
+                Built with
+              </h4>
+              <div className="mb-6 flex flex-wrap gap-1.5">
+                {project.technologies.map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded bg-black/60 px-2 py-1 text-[11px] text-white/70 ring-1 ring-inset ring-white/10"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex flex-col gap-2 sm:flex-row">
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-[#161616] px-5 py-3 text-sm font-semibold text-white transition-colors hover:border-[#ff6b1a]/50 hover:text-[#ff6b1a]"
+                  >
+                    <Github className="h-4 w-4" /> Source code
+                  </a>
+                )}
+
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-bold uppercase tracking-wide transition-colors ${
+                      isDownload
+                        ? 'border border-[#67e8f9]/80 bg-[#06b6d4]/95 text-black hover:bg-[#22d3ee]'
+                        : 'bg-[#ff6b1a] text-black hover:bg-[#ffc247]'
+                    }`}
+                  >
+                    {isDownload ? (
+                      <Download className="h-4 w-4" />
+                    ) : (
+                      <ExternalLink className="h-4 w-4" />
+                    )}
+                    {isDownload ? 'Download' : 'Visit live site'}
+                  </a>
+                )}
+
+                {!project.githubUrl && !project.liveUrl && (
+                  <span className="text-sm text-white/40">
+                    No public link for this project.
+                  </span>
+                )}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      )}
+    </AnimatePresence>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
 /*                                  SHELF                                     */
 /* -------------------------------------------------------------------------- */
 
@@ -201,10 +381,12 @@ function Shelf({
   label,
   sublabel,
   projects,
+  onOpen,
 }: {
   label: string;
   sublabel: string;
   projects: Project[];
+  onOpen: (project: Project) => void;
 }) {
   const railRef = useRef<HTMLDivElement>(null);
   const [atStart, setAtStart] = useState(true);
@@ -290,7 +472,7 @@ function Shelf({
           className="no-scrollbar flex snap-x snap-mandatory items-stretch gap-3 overflow-x-auto px-4 pb-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6b1a] sm:px-6 md:px-8"
         >
           {projects.map((project) => (
-            <ProjectTile key={project.id} project={project} />
+            <ProjectTile key={project.id} project={project} onOpen={onOpen} />
           ))}
         </motion.div>
       </div>
@@ -320,6 +502,8 @@ const featuredPriority: Record<string, number> = {
 };
 
 export default function Projects() {
+  const [selected, setSelected] = useState<Project | null>(null);
+
   const featuredProjects = PROJECTS.filter((p) => p.featured).sort((a, b) => {
     const aRank = featuredPriority[a.id] ?? 999;
     const bRank = featuredPriority[b.id] ?? 999;
@@ -348,10 +532,18 @@ export default function Projects() {
           label="Featured"
           sublabel="Priority builds — swipe or use the arrows"
           projects={featuredProjects}
+          onOpen={setSelected}
         />
 
-        <Shelf label="Archive" sublabel="Older builds and side projects" projects={archiveProjects} />
+        <Shelf
+          label="Archive"
+          sublabel="Older builds and side projects"
+          projects={archiveProjects}
+          onOpen={setSelected}
+        />
       </div>
+
+      <ProjectModal project={selected} onClose={() => setSelected(null)} />
     </section>
   );
 }
