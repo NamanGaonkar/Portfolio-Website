@@ -184,6 +184,17 @@ body::after {
     touch-action: manipulation;
   }
 
+  /* === HORIZONTAL SHELF RAIL === */
+  /* Scroll stays usable (swipe + keyboard arrows), scrollbar stays hidden */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
   section {
     scroll-margin-top: 5rem;
   }

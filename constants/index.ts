@@ -286,7 +286,7 @@ export const EXPERIENCES: Experience[] = [
 export const SOCIAL_LINKS = {
   github: "https://github.com/NamanGaonkar",
   linkedin: "https://www.linkedin.com/in/naman-gaonkar-640822325/",
-  resume: "https://drive.google.com/file/d/1vzinB_4b4SJVsyfVGlcR8Lquk8KKy-Hn/view?usp=sharing",
+  resume: "https://drive.google.com/file/d/1zTpAJZlK4XuPov6n6cgeHFRCdF8Bv2HZ/view?usp=sharing",
   email: "namanrgaonkar@gmail.com"
 };
 

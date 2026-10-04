@@ -67,14 +67,14 @@ export default function Hero() {
               href="https://sub-zero-studio.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-6 sm:px-8 py-3 sm:py-3.5 bg-gradient-to-r from-[#0a0a0a] to-[#1a1a1a] border border-[#ff6b1a]/35 text-white font-bold text-xs sm:text-sm tracking-widest uppercase rounded-xl hover:border-[#ff6b1a]/70 hover:bg-gradient-to-r hover:from-[#0f0f0f] hover:to-[#252525] hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_0_35px_rgba(255,107,26,0.22)] active:scale-[0.97] transition-all duration-300"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2.5 sm:gap-3 px-4 sm:px-8 py-3 sm:py-3.5 bg-gradient-to-r from-[#0a0a0a] to-[#1a1a1a] border border-[#ff6b1a]/35 text-white font-bold text-xs sm:text-sm tracking-wide sm:tracking-widest uppercase rounded-xl hover:border-[#ff6b1a]/70 hover:bg-gradient-to-r hover:from-[#0f0f0f] hover:to-[#252525] hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_0_35px_rgba(255,107,26,0.22)] active:scale-[0.97] transition-all duration-300"
             >
               <img
                 src="/subzero-logo.png"
                 alt="SubZero Studio"
                 className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
               />
-              <span>Go to SubZero Studio</span>
+              <span className="min-w-0 text-center leading-tight">Go to SubZero Studio</span>
             </a>
           </motion.div>
         </motion.div>

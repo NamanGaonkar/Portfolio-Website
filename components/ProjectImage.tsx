@@ -6,9 +6,15 @@ import { useState, useEffect } from 'react';
 interface ProjectImageProps {
   src: string;
   alt: string;
+  /** Responsive size hint — keep accurate or the browser over-fetches on shelves */
+  sizes?: string;
 }
 
-export default function ProjectImage({ src, alt }: ProjectImageProps) {
+export default function ProjectImage({
+  src,
+  alt,
+  sizes = '(max-width: 768px) 100vw, 50vw',
+}: ProjectImageProps) {
   const [imageError, setImageError] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -30,7 +36,7 @@ export default function ProjectImage({ src, alt }: ProjectImageProps) {
       alt={alt}
       fill
       className="object-cover"
-      sizes="(max-width: 768px) 100vw, 50vw"
+      sizes={sizes}
       quality={isMobile ? 60 : 75}
       loading="lazy"
       onError={() => setImageError(true)}
