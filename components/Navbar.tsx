@@ -89,7 +89,7 @@ export default function Navbar() {
                 {activeSection === item.href.slice(1) && (
                   <motion.div
                     layoutId="activeSection"
-                    className="absolute inset-0 bg-[#d9ff2f]/12 border border-[#d9ff2f]/55"
+                    className="absolute inset-0 bg-[#ff6b1a]/12 border border-[#ff6b1a]/55"
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -100,7 +100,7 @@ export default function Navbar() {
               href={SOCIAL_LINKS.resume}
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-2 inline-flex items-center justify-center px-4 py-2 text-sm font-semibold tracking-wide bg-[#d9ff2f] text-black rounded-lg hover:bg-[#ecff63] transition-colors whitespace-nowrap"
+              className="ml-2 inline-flex items-center justify-center px-4 py-2 text-sm font-semibold tracking-wide bg-[#ff6b1a] text-black rounded-lg hover:bg-[#ffc247] transition-colors whitespace-nowrap"
             >
               Download Resume
             </a>
@@ -111,7 +111,7 @@ export default function Navbar() {
         <div className="md:hidden flex justify-end pt-3 pr-1">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="p-2 text-white/85 hover:text-white transition-colors rounded-full bg-black/70 border border-white/15 hover:border-[#d9ff2f]/45"
+            className="p-2 text-white/85 hover:text-white transition-colors rounded-full bg-black/70 border border-white/15 hover:border-[#ff6b1a]/45"
           >
             {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -128,7 +128,7 @@ export default function Navbar() {
             transition={{ duration: 0.2 }}
             className="fixed top-[58px] left-0 right-0 z-40 md:hidden flex justify-center px-4"
           >
-            <div className="w-full glass-effect p-4 shadow-2xl shadow-black/60 border-t border-[#d9ff2f]/20">
+            <div className="w-full glass-effect p-4 shadow-2xl shadow-black/60 border-t border-[#ff6b1a]/20">
               <div className="space-y-2">
                 {navItems.map((item) => (
                   <button
@@ -136,7 +136,7 @@ export default function Navbar() {
                     onClick={() => scrollToSection(item.href)}
                     className={`block w-full text-left px-5 py-3 text-base font-medium tracking-wide transition-all duration-300 ${
                       activeSection === item.href.slice(1)
-                        ? 'bg-[#d9ff2f]/12 text-[#d9ff2f] border border-[#d9ff2f]/45'
+                        ? 'bg-[#ff6b1a]/12 text-[#ff6b1a] border border-[#ff6b1a]/45'
                         : 'text-white/60 hover:text-white hover:bg-white/5'
                     }`}
                   >
@@ -147,7 +147,7 @@ export default function Navbar() {
                   href={SOCIAL_LINKS.resume}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full text-center px-5 py-3 text-base font-semibold tracking-wide bg-[#d9ff2f] text-black rounded-lg hover:bg-[#ecff63] transition-colors"
+                  className="block w-full text-center px-5 py-3 text-base font-semibold tracking-wide bg-[#ff6b1a] text-black rounded-lg hover:bg-[#ffc247] transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Download Resume

@@ -41,7 +41,7 @@ export default function DesignLottie() {
   }, []);
 
   return (
-    <div className="w-full max-w-[540px] mx-auto h-[260px] sm:h-[320px] lg:h-[440px] rounded-2xl border border-[#d9ff2f]/20 bg-black/45 overflow-hidden">
+    <div className="w-full max-w-[540px] mx-auto h-[260px] sm:h-[320px] lg:h-[440px] rounded-2xl border border-[#ff6b1a]/20 bg-black/45 overflow-hidden">
       <div ref={containerRef} className="w-full h-full" />
     </div>
   );

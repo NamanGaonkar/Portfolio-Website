@@ -43,7 +43,7 @@ export default function AnimatedBackground() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/65" />
       
       {/* Grid pattern overlay */}
-      <div className="absolute inset-0 opacity-25" style={{ backgroundImage: 'linear-gradient(rgba(217,255,47,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(217,255,47,0.04) 1px, transparent 1px)', backgroundSize: '80px 80px' }} />
+      <div className="absolute inset-0 opacity-25" style={{ backgroundImage: 'linear-gradient(rgba(255,107,26,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,107,26,0.04) 1px, transparent 1px)', backgroundSize: '80px 80px' }} />
     </div>
   );
 }

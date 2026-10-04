@@ -39,7 +39,7 @@ export default function FloatingAstronaut() {
             src={spideyMask}
             alt="Floating spidey mask"
             sizes="(min-width: 1024px) 144px, (min-width: 640px) 128px, 80px"
-            className="w-full h-full object-contain pointer-events-none drop-shadow-[0_0_24px_rgba(217,255,47,0.2)]"
+            className="w-full h-full object-contain pointer-events-none drop-shadow-[0_0_24px_rgba(255,107,26,0.2)]"
             draggable={false}
           />
         </div>

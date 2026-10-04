@@ -3,14 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --background: #060606;
-  --background-soft: #0d0d0d;
-  --foreground: #f6f6f2;
-  --muted: #a5a79a;
-  --line: #242621;
-  --accent: #d9ff2f;
-  --accent-strong: #ecff63;
-  --accent-soft: rgba(217, 255, 47, 0.18);
+  /* Warm ember terminal palette */
+  --background: #080604;
+  --background-soft: #120c07;
+  --foreground: #f6f2ec;
+  --muted: #a89f92;
+  --line: #2a2018;
+  --accent: #ff6b1a;
+  --accent-strong: #ffc247;
+  --accent-soft: rgba(255, 107, 26, 0.18);
 }
 
 * {
@@ -23,8 +24,8 @@
 
 body {
   color: var(--foreground);
-  background: radial-gradient(900px circle at 12% 8%, rgba(217, 255, 47, 0.08), transparent 48%),
-    radial-gradient(800px circle at 88% 88%, rgba(217, 255, 47, 0.07), transparent 52%),
+  background: radial-gradient(900px circle at 12% 8%, rgba(255, 107, 26, 0.1), transparent 48%),
+    radial-gradient(800px circle at 88% 88%, rgba(255, 194, 71, 0.07), transparent 52%),
     var(--background);
   font-family: var(--font-sans), "Segoe UI", sans-serif;
   /* Prevent horizontal scroll on mobile */
@@ -41,6 +42,50 @@ html {
   -moz-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   text-size-adjust: 100%;
+}
+
+/* === TERMINAL CRT OVERLAY === */
+/* Scanlines + amber grid, painted above content but never intercepting input */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.34) 0, rgba(0, 0, 0, 0.34) 1px, transparent 1px, transparent 3px),
+    linear-gradient(rgba(255, 176, 80, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 176, 80, 0.05) 1px, transparent 1px);
+  background-size: 100% 3px, 80px 80px, 80px 80px;
+}
+
+/* Vignette + slowly pulsing caret bloom, like a warm CRT warming up */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 90% at 50% 50%, transparent 42%, rgba(0, 0, 0, 0.55) 100%),
+    radial-gradient(460px 200px at 12% 88%, rgba(255, 107, 26, 0.12), transparent 70%);
+  animation: caret-bloom 4.5s ease-in-out infinite;
+}
+
+@keyframes caret-bloom {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.82;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::after {
+    animation: none;
+  }
 }
 
 @layer utilities {
@@ -79,10 +124,10 @@ html {
   }
 
   /* === HUD PANEL CARD === */
-  /* Dark background, single-pixel yellow-tinted border, corner bracket accents */
+  /* Dark background, single-pixel ember-tinted border, corner bracket accents */
   .surface-card {
-    background: rgba(10, 10, 10, 0.96);
-    border: 1px solid rgba(217, 255, 47, 0.18);
+    background: rgba(12, 9, 7, 0.96);
+    border: 1px solid rgba(255, 107, 26, 0.18);
     position: relative;
   }
 
@@ -92,7 +137,7 @@ html {
     position: absolute;
     width: 14px;
     height: 14px;
-    border-color: #d9ff2f;
+    border-color: #ff6b1a;
     border-style: solid;
     opacity: 0.6;
   }
@@ -110,7 +155,7 @@ html {
   }
 
   .surface-card:hover {
-    border-color: rgba(217, 255, 47, 0.42);
+    border-color: rgba(255, 107, 26, 0.42);
   }
 
   .surface-card:hover::before,
@@ -120,18 +165,18 @@ html {
 
   /* === ACCENT === */
   .accent-line {
-    background: linear-gradient(90deg, transparent, #d9ff2f, transparent);
+    background: linear-gradient(90deg, transparent, #ff6b1a, #ffc247, transparent);
   }
 
   /* === NAVBAR GLASS === */
   .glass-effect {
-    background: rgba(8, 8, 8, 0.92);
-    border: 1px solid rgba(217, 255, 47, 0.22);
+    background: rgba(10, 7, 5, 0.92);
+    border: 1px solid rgba(255, 107, 26, 0.22);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55), 0 0 0 0 transparent;
   }
 
   .glass-effect:hover {
-    border-color: rgba(217, 255, 47, 0.4);
+    border-color: rgba(255, 194, 71, 0.4);
   }
 
   /* === TOUCH === */
@@ -149,7 +194,7 @@ html {
     }
 
     .glass-effect {
-      background: rgba(8, 8, 8, 0.96);
+      background: rgba(10, 7, 5, 0.96);
     }
 
     * {

@@ -62,9 +62,9 @@ export default function CyberpunkHead3D() {
       neonMagenta.position.set(2.2, 1.6, 1.4);
       scene.add(neonMagenta);
 
-      const yellowKick = new THREE.PointLight(0xd9ff2f, 0.9, 8);
-      yellowKick.position.set(0.2, -1.4, 1.8);
-      scene.add(yellowKick);
+      const emberKick = new THREE.PointLight(0xff6b1a, 0.9, 8);
+      emberKick.position.set(0.2, -1.4, 1.8);
+      scene.add(emberKick);
 
       let modelRoot: any = null;
       const loader = new GLTFLoader();
@@ -95,7 +95,7 @@ export default function CyberpunkHead3D() {
 
         const ring = new THREE.Mesh(
           new THREE.TorusGeometry(1.12, 0.05, 24, 180),
-          new THREE.MeshStandardMaterial({ color: 0xd9ff2f, emissive: 0x5d680f, metalness: 0.6, roughness: 0.34 })
+          new THREE.MeshStandardMaterial({ color: 0xff6b1a, emissive: 0x6b2a00, metalness: 0.6, roughness: 0.34 })
         );
         ring.rotation.x = Math.PI / 2;
         scene.add(ring);
@@ -177,7 +177,7 @@ export default function CyberpunkHead3D() {
     <div className="relative h-[360px] sm:h-[440px] lg:h-[520px] w-full rounded-2xl border border-white/10 bg-[#050505] overflow-hidden">
       <div ref={mountRef} className="h-full w-full" />
       {modelStatus !== 'loaded' && (
-        <div className="absolute left-3 right-3 bottom-3 rounded-lg border border-[#d9ff2f]/30 bg-black/80 px-3 py-2 text-xs text-white/75">
+        <div className="absolute left-3 right-3 bottom-3 rounded-lg border border-[#ff6b1a]/30 bg-black/80 px-3 py-2 text-xs text-white/75">
           {modelStatus === 'fallback'
             ? 'Using procedural cyber-head. Add /public/models/cyberpunk-head.glb to use your custom model.'
             : 'Loading cyberpunk head...'}

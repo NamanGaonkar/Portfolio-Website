@@ -64,17 +64,17 @@ export default function Skills() {
               <motion.div
                 key={skillGroup.category}
                 variants={itemVariants}
-                className="group relative surface-card rounded-2xl p-8 border border-white/10 hover:border-[#d9ff2f]/40 transition-all duration-300 overflow-hidden"
+                className="group relative surface-card rounded-2xl p-8 border border-white/10 hover:border-[#ff6b1a]/40 transition-all duration-300 overflow-hidden"
                 whileHover={{ y: -8, scale: 1.02 }}
               >
                 <div className="absolute top-0 left-0 right-0 h-px accent-line" />
                 
                 <div className="relative z-10">
-                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-[#d9ff2f]/12 border border-[#d9ff2f]/35 mb-5">
-                    <Icon className="w-7 h-7 text-[#ecff63] transition-colors duration-500" strokeWidth={2.5} />
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-[#ff6b1a]/12 border border-[#ff6b1a]/35 mb-5">
+                    <Icon className="w-7 h-7 text-[#ffc247] transition-colors duration-500" strokeWidth={2.5} />
                   </div>
                   
-                  <h3 className="display-font text-3xl mb-6 text-white group-hover:text-[#d9ff2f] transition-colors">
+                  <h3 className="display-font text-3xl mb-6 text-white group-hover:text-[#ff6b1a] transition-colors">
                     {skillGroup.category}
                   </h3>
                   
@@ -89,7 +89,7 @@ export default function Skills() {
                         transition={{ delay: groupIndex * 0.1 + index * 0.05 }}
                         viewport={{ once: true }}
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#d9ff2f]/80 group-hover/item:scale-150 transition-all duration-300" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#ff6b1a]/80 group-hover/item:scale-150 transition-all duration-300" />
                         <span className="group-hover/item:font-medium text-sm sm:text-base">{skill}</span>
                       </motion.li>
                     ))}

@@ -8,7 +8,7 @@ export default function Contact() {
   return (
     <section id="contact" className="min-h-[60vh] px-4 sm:px-6 pt-24 sm:pt-28 pb-16 sm:pb-20 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] h-[520px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(217, 255, 47, 0.16) 0%, transparent 70%)', filter: 'blur(55px)' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] h-[520px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(255, 107, 26, 0.16) 0%, transparent 70%)', filter: 'blur(55px)' }} />
       </div>
       
       <div className="site-container max-w-4xl text-center relative z-10">
@@ -28,7 +28,7 @@ export default function Contact() {
             <img
               src="/cool.gif"
               alt="Creative collaboration animation"
-              className="w-44 sm:w-56 md:w-64 h-auto rounded-xl border border-white/12 shadow-[0_0_30px_rgba(217,255,47,0.18)]"
+              className="w-44 sm:w-56 md:w-64 h-auto rounded-xl border border-white/12 shadow-[0_0_30px_rgba(255,107,26,0.18)]"
             />
           </motion.div>
 
@@ -51,12 +51,12 @@ export default function Contact() {
               href={SOCIAL_LINKS.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex items-center gap-3 px-8 py-4 surface-card rounded-xl border border-white/10 hover:border-[#d9ff2f]/40 transition-all overflow-hidden"
+              className="group relative flex items-center gap-3 px-8 py-4 surface-card rounded-xl border border-white/10 hover:border-[#ff6b1a]/40 transition-all overflow-hidden"
               whileHover={{ y: -5, scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="absolute inset-0 bg-[#d9ff2f]/0 group-hover:bg-[#d9ff2f]/10 transition-all duration-500" />
-              <Github className="w-5 h-5 relative z-10 group-hover:scale-110 group-hover:text-[#ecff63] transition-all" />
+              <div className="absolute inset-0 bg-[#ff6b1a]/0 group-hover:bg-[#ff6b1a]/10 transition-all duration-500" />
+              <Github className="w-5 h-5 relative z-10 group-hover:scale-110 group-hover:text-[#ffc247] transition-all" />
               <span className="relative z-10 font-medium">GitHub</span>
             </motion.a>
             
@@ -64,23 +64,23 @@ export default function Contact() {
               href={SOCIAL_LINKS.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex items-center gap-3 px-8 py-4 surface-card rounded-xl border border-white/10 hover:border-[#d9ff2f]/40 transition-all overflow-hidden"
+              className="group relative flex items-center gap-3 px-8 py-4 surface-card rounded-xl border border-white/10 hover:border-[#ff6b1a]/40 transition-all overflow-hidden"
               whileHover={{ y: -5, scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="absolute inset-0 bg-[#d9ff2f]/0 group-hover:bg-[#d9ff2f]/10 transition-all duration-500" />
-              <Linkedin className="w-5 h-5 relative z-10 group-hover:scale-110 group-hover:text-[#ecff63] transition-all" />
+              <div className="absolute inset-0 bg-[#ff6b1a]/0 group-hover:bg-[#ff6b1a]/10 transition-all duration-500" />
+              <Linkedin className="w-5 h-5 relative z-10 group-hover:scale-110 group-hover:text-[#ffc247] transition-all" />
               <span className="relative z-10 font-medium">LinkedIn</span>
             </motion.a>
             
             <motion.a
               href={`mailto:${SOCIAL_LINKS.email}`}
-              className="group relative flex items-center gap-3 px-8 py-4 surface-card rounded-xl border border-white/10 hover:border-[#d9ff2f]/40 transition-all overflow-hidden"
+              className="group relative flex items-center gap-3 px-8 py-4 surface-card rounded-xl border border-white/10 hover:border-[#ff6b1a]/40 transition-all overflow-hidden"
               whileHover={{ y: -5, scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="absolute inset-0 bg-[#d9ff2f]/0 group-hover:bg-[#d9ff2f]/10 transition-all duration-500" />
-              <Mail className="w-5 h-5 relative z-10 group-hover:scale-110 group-hover:text-[#ecff63] transition-all" />
+              <div className="absolute inset-0 bg-[#ff6b1a]/0 group-hover:bg-[#ff6b1a]/10 transition-all duration-500" />
+              <Mail className="w-5 h-5 relative z-10 group-hover:scale-110 group-hover:text-[#ffc247] transition-all" />
               <span className="relative z-10 font-medium">Email</span>
             </motion.a>
           </motion.div>

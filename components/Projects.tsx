@@ -72,7 +72,7 @@ export default function Projects() {
       <motion.div
         key={project.id}
         variants={itemVariants}
-        className="group surface-card rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#d9ff2f]/35"
+        className="group surface-card rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#ff6b1a]/35"
         whileHover={isMobile ? {} : { y: -8, scale: 1.02 }}
         transition={{ duration: 0.3 }}
       >
@@ -88,7 +88,7 @@ export default function Projects() {
           
           {/* Glow Effect on Hover - Disabled on mobile */}
           {!isMobile && (
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#d9ff2f]/0 via-[#d9ff2f]/0 to-transparent group-hover:from-[#d9ff2f]/10 group-hover:via-[#d9ff2f]/7 group-hover:to-transparent transition-all duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#ff6b1a]/0 via-[#ff6b1a]/0 to-transparent group-hover:from-[#ff6b1a]/10 group-hover:via-[#ff6b1a]/7 group-hover:to-transparent transition-all duration-500" />
           )}
           
           {/* Work in Progress Badge */}
@@ -156,7 +156,7 @@ export default function Projects() {
 
           {/* Discontinued Project Badge */}
           {['mindcare-ai', 'vitemate'].includes(project.id) && (
-            <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#d9ff2f]/90 rounded-full border border-[#ecff63]/60 z-10 max-w-[88%]">
+            <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#ff6b1a]/90 rounded-full border border-[#ffc247]/60 z-10 max-w-[88%]">
               <span className="text-[10px] sm:text-xs font-semibold text-black leading-tight">
                 Discontinued - Source Code Available on GitHub
               </span>
@@ -169,7 +169,7 @@ export default function Projects() {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="absolute top-4 right-4 p-2.5 bg-black/75 rounded-full border border-white/20 hover:border-[#d9ff2f]/45 hover:scale-110 transition-all z-10"
+              className="absolute top-4 right-4 p-2.5 bg-black/75 rounded-full border border-white/20 hover:border-[#ff6b1a]/45 hover:scale-110 transition-all z-10"
               onClick={(e) => e.stopPropagation()}
             >
               <Github className="w-5 h-5" />
@@ -198,7 +198,7 @@ export default function Projects() {
           {/* Subtle top glow */}
           <div className="absolute top-0 left-0 right-0 h-px accent-line" />
           
-          <h3 className="display-font text-2xl sm:text-3xl mb-3 group-hover:text-[#d9ff2f] transition-all duration-300">
+          <h3 className="display-font text-2xl sm:text-3xl mb-3 group-hover:text-[#ff6b1a] transition-all duration-300">
             {project.title}
           </h3>
           <p className="text-white/62 text-sm sm:text-base mb-5 leading-relaxed group-hover:text-white/78 transition-colors">
@@ -213,7 +213,7 @@ export default function Projects() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.05 }}
-                className="px-2.5 py-1 text-xs bg-black/65 border border-white/15 hover:border-[#d9ff2f]/40 text-white/65 hover:text-white transition-all cursor-default"
+                className="px-2.5 py-1 text-xs bg-black/65 border border-white/15 hover:border-[#ff6b1a]/40 text-white/65 hover:text-white transition-all cursor-default"
               >
                 {tech}
               </motion.span>
@@ -255,7 +255,7 @@ export default function Projects() {
           <div className="mt-12">
             <motion.button
               onClick={() => setShowMore(!showMore)}
-              className="flex items-center gap-2 mx-auto px-5 sm:px-6 py-2.5 sm:py-3 surface-card rounded-lg hover:border-[#d9ff2f]/40 transition-all group touch-manipulation"
+              className="flex items-center gap-2 mx-auto px-5 sm:px-6 py-2.5 sm:py-3 surface-card rounded-lg hover:border-[#ff6b1a]/40 transition-all group touch-manipulation"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

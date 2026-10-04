@@ -56,14 +56,14 @@ export default function IsoCubeGrid() {
         ctx.save();
         ctx.globalAlpha = Math.max(0.1, alpha * 0.45);
         ctx.shadowBlur = 3;
-        ctx.shadowColor = '#d9ff2f';
+        ctx.shadowColor = '#ff6b1a';
         ctx.beginPath();
         ctx.moveTo(sx, sy);
         ctx.lineTo(sx + tw / 2, sy + th / 2);
         ctx.lineTo(sx, sy + th);
         ctx.lineTo(sx - tw / 2, sy + th / 2);
         ctx.closePath();
-        ctx.strokeStyle = '#d9ff2f';
+        ctx.strokeStyle = '#ff6b1a';
         ctx.lineWidth = 0.7;
         ctx.setLineDash([3, 4]);
         ctx.stroke();
@@ -77,14 +77,14 @@ export default function IsoCubeGrid() {
 
       // Top face — bright yellow with glow
       ctx.shadowBlur = 12;
-      ctx.shadowColor = 'rgba(217, 255, 47, 0.7)';
+      ctx.shadowColor = 'rgba(255, 107, 26, 0.7)';
       ctx.beginPath();
       ctx.moveTo(sx, sy - h);
       ctx.lineTo(sx + tw / 2, sy + th / 2 - h);
       ctx.lineTo(sx, sy + th - h);
       ctx.lineTo(sx - tw / 2, sy + th / 2 - h);
       ctx.closePath();
-      ctx.fillStyle = '#d9ff2f';
+      ctx.fillStyle = '#ff6b1a';
       ctx.fill();
 
       // Top face edge stroke
@@ -196,7 +196,7 @@ export default function IsoCubeGrid() {
   }, []);
 
   return (
-    <div className="w-full max-w-[540px] mx-auto h-[260px] sm:h-[320px] lg:h-[440px] rounded-2xl border border-[#d9ff2f]/20 bg-black/45 overflow-hidden">
+    <div className="w-full max-w-[540px] mx-auto h-[260px] sm:h-[320px] lg:h-[440px] rounded-2xl border border-[#ff6b1a]/20 bg-black/45 overflow-hidden">
       <canvas
         ref={canvasRef}
         style={{ width: '100%', height: '100%', display: 'block' }}
