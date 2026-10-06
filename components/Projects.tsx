@@ -1,7 +1,7 @@
 'use client';
 
 import { AnimatePresence, motion } from 'framer-motion';
-import { Github, ExternalLink, Download, ChevronLeft, ChevronRight, Info, X } from 'lucide-react';
+import { Github, ExternalLink, Download, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { PROJECTS, type Project } from '@/constants';
 import ProjectImage from './ProjectImage';
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -106,7 +106,22 @@ function ProjectTile({
       {/* h-full + flex-col lets the rail's default align-items:stretch equalise
           every tile to the tallest one, so shapes stay uniform regardless of how
           long a title or tech chip happens to be. */}
-      <div className="surface-card relative flex h-full flex-col overflow-hidden rounded-xl transition-all duration-300 group-hover:border-[#ff6b1a]/50 group-hover:shadow-[0_0_34px_rgba(255,107,26,0.18)]">
+      {/* The whole card is the click target — no separate info button.
+          Links inside call stopPropagation so they stay independent. */}
+      <div
+        role="button"
+        tabIndex={0}
+        aria-haspopup="dialog"
+        aria-label={`More details about ${project.title}`}
+        onClick={() => onOpen(project)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            onOpen(project);
+          }
+        }}
+        className="surface-card relative flex h-full cursor-pointer flex-col overflow-hidden rounded-xl transition-all duration-300 group-hover:border-[#ff6b1a]/50 group-hover:shadow-[0_0_34px_rgba(255,107,26,0.18)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6b1a]"
+      >
         {/* Artwork */}
         <div className="relative aspect-[16/9] shrink-0 overflow-hidden bg-gradient-to-br from-[#140f0a] to-black">
           <ProjectImage src={project.image} alt={project.title} sizes={TILE_WIDTHS} />
@@ -153,21 +168,12 @@ function ProjectTile({
 
           {/* mt-auto pins the link row to the bottom so it aligns across tiles */}
           <div className="mt-auto flex items-center gap-1.5 pt-2.5">
-            <button
-              type="button"
-              onClick={() => onOpen(project)}
-              aria-label={`More details about ${project.title}`}
-              aria-haspopup="dialog"
-              className="rounded-md border border-white/15 bg-black/60 p-1.5 text-white/75 transition-colors hover:border-[#ff6b1a]/50 hover:text-[#ff6b1a]"
-            >
-              <Info className="h-3.5 w-3.5" />
-            </button>
-
             {project.githubUrl && (
               <a
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
                 aria-label={`${project.title} on GitHub`}
                 className="rounded-md border border-white/15 bg-black/60 p-1.5 text-white/75 transition-colors hover:border-[#ff6b1a]/50 hover:text-[#ff6b1a]"
               >
@@ -180,6 +186,7 @@ function ProjectTile({
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
                 aria-label={
                   isDownload
                     ? `Download ${project.title}`
